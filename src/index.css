@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sky-day: #0f172a;    /* Slate 900 - dark blue */
+  --color-sky-sunset: #1e1b4b; /* Indigo 950 - deep purple/blue */
+  --color-sky-night: #020617;  /* Slate 950 - almost black blue */
+  
+  --color-cloud: rgba(255, 255, 255, 0.8);
+  --color-dashboard: rgba(20, 30, 48, 0.8);
+  --color-accent-blue: #00A8FF;
+  --color-accent-orange: #FF6B6B;
+  
+  --color-glass-light: rgba(255, 255, 255, 0.1);
+  --color-glass-dark: rgba(0, 0, 0, 0.4);
+  --color-glass-border-light: rgba(255, 255, 255, 0.2);
+  --color-glass-border-dark: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  body {
+    @apply text-gray-800 overflow-x-hidden m-0 p-0;
+    font-family: 'Inter', sans-serif;
+    /* Default to day sky, will be overridden by GSAP */
+    background-color: var(--color-sky-day);
+    transition: color 0.5s ease;
+  }
+}
+
+@layer utilities {
+  .glass-panel-light {
+    @apply bg-glass-light border border-glass-border-light backdrop-blur-xl rounded-3xl shadow-lg;
+  }
+  
+  .glass-panel-dark {
+    @apply bg-glass-dark border border-glass-border-dark backdrop-blur-xl rounded-3xl shadow-lg text-white;
+  }
+
+  .dashboard-panel {
+    @apply bg-dashboard border border-gray-600 rounded-lg shadow-inner text-green-400 font-mono;
+  }
+
+  /* Make sure the main container scrolls nicely */
+  .flight-container {
+    @apply w-full relative;
+  }
+}
