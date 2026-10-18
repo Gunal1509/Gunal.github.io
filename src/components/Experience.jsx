@@ -80,11 +80,28 @@ export const Experience = () => {
                       <div className="font-mono text-muted mb-2" style={{ fontSize: '0.75rem' }}>
                         STACK UTILIZED
                       </div>
-                      <div className="d-flex flex-wrap gap-1">
+                      <div className="d-flex flex-wrap gap-1 mb-3">
                         {exp.technologies.map((t) => (
                           <span key={t} className="tech-pill">{t}</span>
                         ))}
                       </div>
+
+                      {exp.verificationRef && (
+                        <div className="pt-2 border-top border-eng">
+                          <div className="font-mono text-muted mb-1" style={{ fontSize: '0.7rem' }}>
+                            OFFICIAL VERIFICATION
+                          </div>
+                          <div className="font-mono" style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)' }}>
+                            REF: {exp.verificationRef}
+                          </div>
+                          <div className="text-secondary font-mono mt-1" style={{ fontSize: '0.7rem' }}>
+                            Signatory: {exp.signatory}
+                          </div>
+                          <div className="text-muted font-mono" style={{ fontSize: '0.68rem' }}>
+                            Verify: {exp.verificationContact}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

@@ -145,17 +145,21 @@ export const RESUME_DATA = {
   experience: [
     {
       id: "uptoskill",
-      company: "UptoSKill",
+      company: "Uptoskills",
       role: "Web Development Intern",
-      period: "03/2026 – 06/2026",
-      location: "Remote / Hybrid",
+      period: "16 March 2026 – 16 June 2026",
+      location: "New Delhi / Remote",
+      verificationRef: "US-EXP-2026-H2543AA",
+      verificationContact: "verify@uptoskills.in",
+      signatory: "Shivam Agarwal (Authorized Signatory)",
       responsibilities: [
         "Developed responsive, high-performance web applications using HTML, CSS, JavaScript, and React.js.",
         "Collaborated across UI development, API integration, database operations, and rigorous debugging.",
+        "Demonstrated strong analytical thinking, dedication, and professional attitude toward growth and development.",
         "Engineered reliable web interfaces ensuring cross-browser compatibility and maintainable frontend architecture."
       ],
       technologies: ["React.js", "JavaScript", "HTML", "CSS", "REST APIs", "Debugging"],
-      outcome: "Delivered responsive web features on schedule with end-to-end API integration and verified database connectivity."
+      outcome: "Successfully completed internship with official Experience Letter certification (Ref: US-EXP-2026-H2543AA), delivering verified web application features."
     }
   ],
 
