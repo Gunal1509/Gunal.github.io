@@ -1,127 +1,326 @@
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Mail, Phone, MapPin, PlaneLanding } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import React, { useState } from 'react';
+import { RESUME_DATA } from '../data/resumeData';
+import { Mail, Phone, MapPin, Send, CheckCircle2, FileText, ArrowUpRight, Copy, Check } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
-gsap.registerPlugin(ScrollTrigger);
+export const Contact = () => {
+  const [copied, setCopied] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
-const Contact = () => {
-  const terminalRef = useRef(null);
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(RESUME_DATA.personal.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
-  useEffect(() => {
-    // Bring up the terminal building/card
-    gsap.fromTo(terminalRef.current,
-      { y: 200, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: terminalRef.current,
-          start: "top 90%",
-          end: "top 60%",
-          scrub: 1,
-        }
-      }
-    );
-  }, []);
+  const handlePrintResume = () => {
+    window.print();
+  };
 
   return (
-    <section id="contact" className="py-32 relative z-10 min-h-screen flex items-end justify-center">
-      
-      {/* Runway lights background effect */}
-      <div className="absolute inset-x-0 bottom-0 h-64 flex justify-between px-4 sm:px-20 opacity-30 pointer-events-none">
-        <div className="w-1 h-full border-r-[10px] border-dotted border-yellow-500 transform -skew-x-[45deg]"></div>
-        <div className="w-1 h-full border-l-[10px] border-dotted border-yellow-500 transform skew-x-[45deg]"></div>
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10 pb-20">
+    <section id="contact" className="section-wrapper border-top border-eng">
+      <div className="container">
         
-        <div ref={terminalRef} className="max-w-4xl mx-auto glass-panel-dark p-8 md:p-12 border-t-4 border-sky-400">
-          
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-white tracking-wide mb-2 flex items-center justify-center gap-3">
-              <PlaneLanding size={32} className="text-sky-400" /> Contact
-            </h2>
-            <p className="text-gray-300">Let's Connect</p>
-          </div>
+        {/* Resume Preview & Download Block */}
+        <div id="resume" className="mb-5 pb-4">
+          <div className="eng-card eng-card-highlight p-4 p-md-5 mb-5">
+            <div className="row align-items-center gy-4">
+              <div className="col-lg-8">
+                <div className="d-flex align-items-center gap-2 mb-2 font-mono" style={{ color: 'var(--accent-cyan)', fontSize: '0.8rem' }}>
+                  <FileText size={16} />
+                  <span>OFFICIAL RESUME DOSSIER // GUNAL S</span>
+                </div>
+                <h3 className="h3 fw-bold text-white mb-2">
+                  Ready to review or share the comprehensive profile?
+                </h3>
+                <p className="text-secondary mb-0 leading-relaxed" style={{ fontSize: '0.92rem' }}>
+                  Complete single-page engineering documentation containing verified credentials, technical proficiencies, project architecture scopes, and contact references.
+                </p>
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            
-            <div className="space-y-8">
-              <p className="text-gray-300 leading-relaxed mb-6">
-                If you have a project idea, a job opportunity, or just want to connect, please reach out!
-              </p>
+              <div className="col-lg-4 d-flex flex-column flex-sm-row flex-lg-column gap-2 justify-content-lg-end">
+                <button 
+                  type="button" 
+                  onClick={handlePrintResume}
+                  className="btn-engineering btn-primary-eng"
+                >
+                  <FileText size={16} />
+                  <span>Download / Print Resume (PDF)</span>
+                </button>
+                <button 
+                  type="button" 
+                  onClick={handleCopyEmail}
+                  className="btn-engineering btn-secondary-eng"
+                >
+                  {copied ? <Check size={16} style={{ color: 'var(--accent-emerald)' }} /> : <Copy size={16} />}
+                  <span>{copied ? "Email Copied to Clipboard" : "Copy Direct Email"}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* /LET'S_BUILD Terminal / Contact Section */}
+        <div className="section-tag">
+          <Send size={13} />
+          /OPEN_TO_BUILD
+        </div>
+
+        <h2 className="section-heading">
+          Let's connect &amp; build dependable software
+        </h2>
+
+        <p className="section-description">
+          Open to software engineering roles, technical internships, and collaborative development. Reach out directly via email or professional networks.
+        </p>
+
+        <div className="row g-4">
+          
+          {/* Direct Contact Cards */}
+          <div className="col-lg-5">
+            <div className="d-flex flex-column gap-3">
               
-              <div className="space-y-4">
-                <a href="mailto:sivagunal15@gmail.com" className="flex items-center gap-4 text-gray-300 hover:text-sky-400 transition-colors group">
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-sky-400/20">
+              {/* Email */}
+              <div className="eng-card p-3 d-flex align-items-center justify-content-between">
+                <div className="d-flex align-items-center gap-3">
+                  <div className="p-2 rounded" style={{ background: 'rgba(56, 189, 248, 0.1)', color: 'var(--accent-cyan)' }}>
                     <Mail size={18} />
                   </div>
-                  <span>sivagunal15@gmail.com</span>
-                </a>
-                
-                <a href="tel:9500856348" className="flex items-center gap-4 text-gray-300 hover:text-sky-400 transition-colors group">
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-sky-400/20">
+                  <div>
+                    <div className="font-mono text-muted" style={{ fontSize: '0.72rem' }}>DIRECT EMAIL</div>
+                    <a href={`mailto:${RESUME_DATA.personal.email}`} className="text-white fw-semibold" style={{ fontSize: '0.9rem' }}>
+                      {RESUME_DATA.personal.email}
+                    </a>
+                  </div>
+                </div>
+                <button 
+                  type="button" 
+                  onClick={handleCopyEmail}
+                  className="btn-engineering btn-ghost-eng p-2"
+                  title="Copy Email"
+                >
+                  {copied ? <Check size={16} style={{ color: 'var(--accent-emerald)' }} /> : <Copy size={16} />}
+                </button>
+              </div>
+
+              {/* Phone */}
+              <div className="eng-card p-3 d-flex align-items-center justify-content-between">
+                <div className="d-flex align-items-center gap-3">
+                  <div className="p-2 rounded" style={{ background: 'rgba(56, 189, 248, 0.1)', color: 'var(--accent-cyan)' }}>
                     <Phone size={18} />
                   </div>
-                  <span>+91 9500856348</span>
-                </a>
-                
-                <div className="flex items-center gap-4 text-gray-300 group">
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-sky-400/20">
+                  <div>
+                    <div className="font-mono text-muted" style={{ fontSize: '0.72rem' }}>DIRECT PHONE</div>
+                    <a href={`tel:${RESUME_DATA.personal.phone}`} className="text-white fw-semibold" style={{ fontSize: '0.9rem' }}>
+                      {RESUME_DATA.personal.phone}
+                    </a>
+                  </div>
+                </div>
+                <span className="font-mono text-muted" style={{ fontSize: '0.75rem' }}>IST (UTC+5:30)</span>
+              </div>
+
+              {/* Location */}
+              <div className="eng-card p-3 d-flex align-items-center justify-content-between">
+                <div className="d-flex align-items-center gap-3">
+                  <div className="p-2 rounded" style={{ background: 'rgba(56, 189, 248, 0.1)', color: 'var(--accent-cyan)' }}>
                     <MapPin size={18} />
                   </div>
-                  <span>Puducherry, India</span>
+                  <div>
+                    <div className="font-mono text-muted" style={{ fontSize: '0.72rem' }}>GEOGRAPHIC LOCATION</div>
+                    <div className="text-white fw-semibold" style={{ fontSize: '0.9rem' }}>
+                      {RESUME_DATA.personal.location}
+                    </div>
+                  </div>
+                </div>
+                <span className="badge rounded-pill font-mono" style={{ background: 'rgba(16, 185, 129, 0.1)', color: 'var(--accent-emerald)', fontSize: '0.7rem' }}>
+                  AVAILABLE
+                </span>
+              </div>
+
+              {/* Social Channels */}
+              <div className="eng-card p-4">
+                <div className="font-mono text-muted mb-3" style={{ fontSize: '0.75rem' }}>
+                  DEVELOPER ECOSYSTEM &amp; REPOSITORIES
+                </div>
+                <div className="d-flex flex-column gap-2">
+                  <a 
+                    href={RESUME_DATA.personal.github} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="p-2 rounded d-flex align-items-center justify-content-between"
+                    style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)' }}
+                  >
+                    <div className="d-flex align-items-center gap-2">
+                      <FaGithub size={18} style={{ color: 'var(--text-primary)' }} />
+                      <span className="text-white" style={{ fontSize: '0.85rem' }}>GitHub ({RESUME_DATA.personal.githubHandle})</span>
+                    </div>
+                    <ArrowUpRight size={14} className="text-muted" />
+                  </a>
+
+                  <a 
+                    href={RESUME_DATA.personal.linkedin} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="p-2 rounded d-flex align-items-center justify-content-between"
+                    style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)' }}
+                  >
+                    <div className="d-flex align-items-center gap-2">
+                      <FaLinkedin size={18} style={{ color: '#0a66c2' }} />
+                      <span className="text-white" style={{ fontSize: '0.85rem' }}>LinkedIn ({RESUME_DATA.personal.linkedinHandle})</span>
+                    </div>
+                    <ArrowUpRight size={14} className="text-muted" />
+                  </a>
+
+                  <a 
+                    href={RESUME_DATA.personal.leetcode} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="p-2 rounded d-flex align-items-center justify-content-between"
+                    style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)' }}
+                  >
+                    <div className="d-flex align-items-center gap-2">
+                      <span className="font-mono fw-bold" style={{ color: '#f89f1b', fontSize: '0.9rem' }}>LC</span>
+                      <span className="text-white" style={{ fontSize: '0.85rem' }}>LeetCode ({RESUME_DATA.personal.leetcodeHandle})</span>
+                    </div>
+                    <ArrowUpRight size={14} className="text-muted" />
+                  </a>
                 </div>
               </div>
 
-              <div className="flex gap-4 pt-4 border-t border-white/10">
-                <a href="https://github.com/Gunal1509" target="_blank" rel="noreferrer" className="w-12 h-12 rounded bg-white/5 flex items-center justify-center hover:bg-sky-500 hover:text-white transition-colors text-gray-400">
-                  <FaGithub size={20} />
-                </a>
-                <a href="https://linkedin.com/in/Gunal s" target="_blank" rel="noreferrer" className="w-12 h-12 rounded bg-white/5 flex items-center justify-center hover:bg-sky-500 hover:text-white transition-colors text-gray-400">
-                  <FaLinkedin size={20} />
-                </a>
-              </div>
             </div>
+          </div>
 
-            {/* Comms Form */}
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+          {/* Quick Message Terminal */}
+          <div className="col-lg-7">
+            <div className="eng-card h-100 p-4 p-md-5 d-flex flex-column justify-content-between">
+              
               <div>
-                <input 
-                  type="text" 
-                  className="w-full bg-black/40 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400 transition-colors placeholder-gray-500"
-                  placeholder="Passenger Name"
-                />
-              </div>
-              <div>
-                <input 
-                  type="email" 
-                  className="w-full bg-black/40 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400 transition-colors placeholder-gray-500"
-                  placeholder="Email Address"
-                />
-              </div>
-              <div>
-                <textarea 
-                  rows="4"
-                  className="w-full bg-black/40 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-400 transition-colors placeholder-gray-500 resize-none"
-                  placeholder="Transmission Message..."
-                ></textarea>
-              </div>
-              <button 
-                type="submit" 
-                className="w-full py-3 rounded-lg bg-sky-500 text-white font-bold tracking-widest hover:bg-sky-400 transition-colors shadow-[0_0_15px_rgba(56,189,248,0.5)] uppercase text-sm"
-              >
-                Transmit Signal
-              </button>
-            </form>
+                <div className="d-flex justify-content-between align-items-center pb-3 mb-4 border-bottom border-eng">
+                  <div className="font-mono" style={{ color: 'var(--accent-cyan)', fontSize: '0.82rem' }}>
+                    TERMINAL // TRANSMIT_MESSAGE.SH
+                  </div>
+                  <span className="font-mono text-muted" style={{ fontSize: '0.72rem' }}>
+                    DIRECT TRANSMISSION
+                  </span>
+                </div>
 
+                {formSubmitted ? (
+                  <div className="text-center py-5">
+                    <CheckCircle2 size={48} className="mb-3" style={{ color: 'var(--accent-emerald)' }} />
+                    <h4 className="h5 fw-bold text-white mb-2">Message Prepared Successfully</h4>
+                    <p className="text-secondary mb-4" style={{ fontSize: '0.88rem' }}>
+                      Thank you for connecting. An email draft has been generated for direct correspondence.
+                    </p>
+                    <button 
+                      type="button" 
+                      onClick={() => setFormSubmitted(false)}
+                      className="btn-engineering btn-secondary-eng"
+                    >
+                      Reset Terminal
+                    </button>
+                  </div>
+                ) : (
+                  <form 
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      setFormSubmitted(true);
+                    }}
+                    className="d-flex flex-column gap-3"
+                  >
+                    <div>
+                      <label className="font-mono text-muted mb-1 d-block" style={{ fontSize: '0.75rem' }}>
+                        YOUR_NAME / SENDER
+                      </label>
+                      <input 
+                        type="text" 
+                        required
+                        className="form-control"
+                        placeholder="e.g. Hiring Manager / Technical Lead"
+                        style={{
+                          background: 'rgba(7, 10, 15, 0.8)',
+                          borderColor: 'var(--border-subtle)',
+                          color: 'var(--text-primary)',
+                          fontFamily: 'var(--font-sans)',
+                          fontSize: '0.88rem'
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <label className="font-mono text-muted mb-1 d-block" style={{ fontSize: '0.75rem' }}>
+                        SENDER_EMAIL_ADDRESS
+                      </label>
+                      <input 
+                        type="email" 
+                        required
+                        className="form-control"
+                        placeholder="e.g. engineering@company.com"
+                        style={{
+                          background: 'rgba(7, 10, 15, 0.8)',
+                          borderColor: 'var(--border-subtle)',
+                          color: 'var(--text-primary)',
+                          fontFamily: 'var(--font-sans)',
+                          fontSize: '0.88rem'
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <label className="font-mono text-muted mb-1 d-block" style={{ fontSize: '0.75rem' }}>
+                        PROJECT_SCOPE_OR_ROLE_PROPOSAL
+                      </label>
+                      <textarea 
+                        rows="4" 
+                        required
+                        className="form-control"
+                        placeholder="Detail the technical opportunity, project architecture scope, or role specifications..."
+                        style={{
+                          background: 'rgba(7, 10, 15, 0.8)',
+                          borderColor: 'var(--border-subtle)',
+                          color: 'var(--text-primary)',
+                          fontFamily: 'var(--font-sans)',
+                          fontSize: '0.88rem',
+                          resize: 'none'
+                        }}
+                      ></textarea>
+                    </div>
+
+                    <div className="pt-2">
+                      <button 
+                        type="submit" 
+                        className="btn-engineering btn-primary-eng w-100 py-3"
+                      >
+                        <Send size={16} />
+                        <span>Send Transmission</span>
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </div>
+
+              <div className="mt-4 pt-3 border-top border-eng font-mono text-muted d-flex justify-content-between align-items-center" style={{ fontSize: '0.72rem' }}>
+                <span>STATUS: 200 OK</span>
+                <span>AUTHENTIC RESUME DATA ONLY</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        {/* Global Footer */}
+        <div className="mt-5 pt-5 border-top border-eng d-flex flex-wrap justify-content-between align-items-center gap-3">
+          <div className="font-mono" style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+            © {new Date().getFullYear()} {RESUME_DATA.personal.name} // {RESUME_DATA.personal.role}
+          </div>
+
+          <div className="d-flex align-items-center gap-4 font-mono text-muted" style={{ fontSize: '0.75rem' }}>
+            <span>DESIGN: MODERN ENGINEERING SPEC</span>
+            <span>STACK: REACT + BOOTSTRAP + CSS</span>
           </div>
         </div>
+
       </div>
     </section>
   );
 };
-
-export default Contact;

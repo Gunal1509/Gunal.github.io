@@ -1,84 +1,118 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Airplane from './components/Airplane';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Contact from './components/Contact';
+import React, { useState, useEffect } from 'react';
+import { Hero } from './components/Hero';
+import { About } from './components/About';
+import { Projects } from './components/Projects';
+import { Skills } from './components/Skills';
+import { Experience } from './components/Experience';
+import { Achievements } from './components/Achievements';
+import { Contact } from './components/Contact';
+import { RESUME_DATA } from './data/resumeData';
+import { Terminal, FileDown } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
-
-function App() {
-  const containerRef = useRef(null);
+export default function App() {
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
-    // Background color transition from Day to Sunset to Night
-    gsap.to(containerRef.current, {
-      backgroundColor: "var(--color-sky-night)",
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true,
-      }
-    });
-    
-    // Create a sunset middle point
-    gsap.to(containerRef.current, {
-      backgroundColor: "var(--color-sky-sunset)",
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "25% top",
-        end: "50% bottom",
-        scrub: true,
-      }
-    });
+    const handleScroll = () => {
+      const sections = ['hero', 'about', 'projects', 'skills', 'experience', 'achievements', 'contact'];
+      const scrollPosition = window.scrollY + 200;
 
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const top = element.offsetTop;
+          const height = element.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <div ref={containerRef} className="flight-container min-h-screen transition-colors duration-1000 selection:bg-accent-blue selection:text-white">
+    <div className="bg-engineering-grid position-relative min-vh-100">
       
-      {/* Central Fixed Airplane */}
-      <Airplane />
-      
-      {/* Flight Path Line (drawn down the center) */}
-      <div className="fixed top-0 left-1/2 w-[2px] h-full bg-white/20 -translate-x-1/2 z-0 pointer-events-none border-dashed border-l-2 border-white/40 opacity-50"></div>
+      {/* Top Ambient Glow */}
+      <div className="bg-ambient-glow"></div>
 
-      {/* Navigation - Adapted for Flight Theme */}
-      <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 glass-panel-light px-8 py-4 w-[90%] md:w-auto max-w-2xl mx-auto hidden md:flex items-center justify-between gap-8 border-t-2 border-t-white/50">
-        <a href="#" className="font-bold text-xl text-sky-100 tracking-widest flex items-center gap-2">
-          Gunal S.
+      {/* Modern Engineering Floating Navigation */}
+      <nav className="engineering-nav" aria-label="Main Navigation">
+        <a 
+          href="#hero" 
+          className="d-flex align-items-center gap-2 me-2 text-decoration-none"
+          style={{ color: 'var(--text-primary)', fontWeight: 700, fontSize: '0.85rem' }}
+        >
+          <span className="p-1 rounded" style={{ background: 'rgba(56, 189, 248, 0.15)', color: 'var(--accent-cyan)' }}>
+            <Terminal size={14} />
+          </span>
+          <span className="d-none d-sm-inline font-mono">{RESUME_DATA.personal.name}</span>
         </a>
-        <div className="flex items-center gap-6 text-sm font-medium text-sky-200">
-          <a href="#about" className="hover:text-white transition-colors">About</a>
-          <a href="#skills" className="hover:text-white transition-colors">Skills</a>
-          <a href="#projects" className="hover:text-white transition-colors">Projects</a>
-          <a href="#experience" className="hover:text-white transition-colors">Experience</a>
-          <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+
+        <div className="d-flex align-items-center gap-1">
+          <a 
+            href="#about" 
+            className={`nav-link-eng ${activeSection === 'about' ? 'active' : ''}`}
+          >
+            About
+          </a>
+          <a 
+            href="#projects" 
+            className={`nav-link-eng ${activeSection === 'projects' ? 'active' : ''}`}
+          >
+            Projects
+          </a>
+          <a 
+            href="#skills" 
+            className={`nav-link-eng ${activeSection === 'skills' ? 'active' : ''}`}
+          >
+            Skills
+          </a>
+          <a 
+            href="#experience" 
+            className={`nav-link-eng ${activeSection === 'experience' ? 'active' : ''}`}
+          >
+            Experience
+          </a>
+          <a 
+            href="#achievements" 
+            className={`nav-link-eng ${activeSection === 'achievements' ? 'active' : ''}`}
+          >
+            Accomplishments
+          </a>
+          <a 
+            href="#contact" 
+            className={`nav-link-eng ${activeSection === 'contact' ? 'active' : ''}`}
+          >
+            Contact
+          </a>
         </div>
+
+        <a 
+          href="#resume" 
+          className="btn-engineering btn-secondary-eng py-1 px-3 ms-2 d-none d-md-flex align-items-center gap-1"
+          style={{ fontSize: '0.78rem' }}
+        >
+          <FileDown size={13} />
+          <span>Resume</span>
+        </a>
       </nav>
 
-      {/* Flight Zones (Sections) */}
-      <main className="relative z-10 w-full overflow-hidden">
+      {/* Main Content Sections */}
+      <main>
         <Hero />
         <About />
-        <Skills />
         <Projects />
+        <Skills />
         <Experience />
+        <Achievements />
         <Contact />
       </main>
-      
-      <footer className="relative z-10 border-t border-white/20 py-8 text-center text-gray-300 text-sm bg-sky-night/80 backdrop-blur-md">
-        <p>&copy; {new Date().getFullYear()} Gunal S. Flight Successfully Completed.</p>
-      </footer>
+
     </div>
   );
 }
-
-export default App;

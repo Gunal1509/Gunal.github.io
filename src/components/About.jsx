@@ -1,92 +1,173 @@
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React from 'react';
+import { RESUME_DATA } from '../data/resumeData';
+import { Target, Layers, Cpu, Award } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
-
-const About = () => {
-  const sectionRef = useRef(null);
-  const glow1 = useRef(null);
-  const glow2 = useRef(null);
-  const cardRef = useRef(null);
-
-  useEffect(() => {
-    // Parallax glows
-    gsap.to(glow1.current, {
-      y: -150,
-      opacity: 0.5,
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1,
-      }
-    });
-
-    gsap.to(glow2.current, {
-      y: -200,
-      opacity: 0.3,
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1.5,
-      }
-    });
-
-    // Fade in card
-    gsap.fromTo(cardRef.current, 
-      { opacity: 0, scale: 0.95, y: 50 },
-      { 
-        opacity: 1, 
-        scale: 1, 
-        y: 0,
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: "top 80%",
-          end: "center center",
-          scrub: 1,
-        }
-      }
-    );
-  }, []);
-
+export const About = () => {
   return (
-    <section id="about" ref={sectionRef} className="py-32 relative min-h-screen flex items-center justify-center">
-      
-      {/* Background Technical Glows instead of cartoony clouds */}
-      <div ref={glow1} className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-600/10 rounded-full blur-[100px] pointer-events-none"></div>
-      <div ref={glow2} className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div ref={cardRef} className="max-w-4xl mx-auto glass-panel-light border border-sky-400/20 p-10 md:p-16 relative overflow-hidden rounded-sm">
-          
-          {/* Tech decorative corners */}
-          <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-sky-400/50"></div>
-          <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-sky-400/50"></div>
-          <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-sky-400/50"></div>
-          <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-sky-400/50"></div>
-
-          <div className="flex items-center gap-4 mb-8">
-            <h2 className="text-3xl font-light text-white tracking-widest uppercase flex items-center gap-4">
-              <span className="w-8 h-[1px] bg-sky-400"></span>
-              About Me
-            </h2>
-          </div>
-          
-          <p className="text-lg md:text-xl text-sky-200 font-light leading-relaxed text-left tracking-wide">
-            I am a passionate <span className="text-sky-300 font-medium">React Developer</span> with a background in working on a variety of projects and improving my skills through self-learning and competitive programming. 
-            <br /><br />
-            I am a dedicated and growth-oriented individual, and I always look to improve my skills and build impactful projects in my career as a software developer. My approach combines clean code architecture with immersive, dynamic UI designs.
-          </p>
-
-          <div className="mt-8 font-mono text-xs text-sky-500/50 tracking-widest uppercase">
-            END OF FILE //
-          </div>
+    <section id="about" className="section-wrapper border-top border-eng">
+      <div className="container">
+        
+        <div className="section-tag">
+          <Target size={13} />
+          Profile Dossier
         </div>
+
+        <h2 className="section-heading">
+          Engineering profile &amp; technical philosophy
+        </h2>
+
+        <p className="section-description">
+          A focused summary of technical focus, application development capabilities, and core execution principles drawn directly from verified projects and coursework.
+        </p>
+
+        <div className="row g-4">
+          
+          {/* Professional Summary Card */}
+          <div className="col-lg-6">
+            <div className="eng-card h-100 p-4 d-flex flex-column justify-content-between">
+              <div>
+                <div className="d-flex align-items-center justify-content-between gap-2 mb-3">
+                  <div className="d-flex align-items-center gap-2">
+                    <span className="font-mono text-secondary" style={{ fontSize: '0.8rem' }}>// 01</span>
+                    <h3 className="h5 fw-bold mb-0 text-white">Professional Summary</h3>
+                  </div>
+                  <span className="font-mono text-muted" style={{ fontSize: '0.72rem' }}>GUNAL S // SDE</span>
+                </div>
+
+                <div className="d-flex flex-column flex-sm-row gap-3 align-items-start mb-3">
+                  <img 
+                    src="./profile.jpg" 
+                    alt="Gunal S profile" 
+                    className="rounded object-fit-cover flex-shrink-0"
+                    style={{
+                      width: '90px',
+                      height: '110px',
+                      border: '1px solid var(--border-strong)',
+                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)'
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.src = '/profile.jpg';
+                    }}
+                  />
+                  <p className="text-secondary leading-relaxed mb-0" style={{ fontSize: '0.92rem' }}>
+                    {RESUME_DATA.personal.summary}
+                  </p>
+                </div>
+
+                <div className="p-3 rounded mb-3" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)' }}>
+                  <div className="font-mono text-muted mb-1" style={{ fontSize: '0.72rem' }}>PRIMARY MOTIVATION</div>
+                  <div className="text-white" style={{ fontSize: '0.88rem' }}>
+                    Committed to building quality, production-grade software and contributing engineering value to modern product teams.
+                  </div>
+                </div>
+              </div>
+
+              <div className="d-flex flex-wrap gap-2 pt-3 border-top border-eng">
+                <span className="tech-pill">B.Tech IT (GPA: 8.82)</span>
+                <span className="tech-pill">Competitive Programmer</span>
+                <span className="tech-pill">Full-Stack Engineer</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Engineering Interests & Focus */}
+          <div className="col-lg-6">
+            <div className="eng-card h-100 p-4 d-flex flex-column justify-content-between">
+              <div>
+                <div className="d-flex align-items-center gap-2 mb-3">
+                  <span className="font-mono text-secondary" style={{ fontSize: '0.8rem' }}>// 02</span>
+                  <h3 className="h5 fw-bold mb-0 text-white">Engineering Interests</h3>
+                </div>
+                <p className="text-secondary leading-relaxed mb-4" style={{ fontSize: '0.95rem' }}>
+                  Focused on building scalable web backends, integrating machine learning pipelines with production APIs, and architecting responsive, accessible user interfaces.
+                </p>
+
+                <div className="d-flex flex-column gap-2 mb-3">
+                  <div className="d-flex align-items-start gap-3 p-2 rounded" style={{ background: 'rgba(255, 255, 255, 0.02)' }}>
+                    <Layers size={16} className="mt-1" style={{ color: 'var(--accent-cyan)' }} />
+                    <div>
+                      <div className="text-white fw-semibold" style={{ fontSize: '0.85rem' }}>Full-Stack Systems Architecture</div>
+                      <div className="text-secondary" style={{ fontSize: '0.78rem' }}>Connecting React.js SPAs with Spring Boot and FastAPI microservices via secure JWT auth.</div>
+                    </div>
+                  </div>
+
+                  <div className="d-flex align-items-start gap-3 p-2 rounded" style={{ background: 'rgba(255, 255, 255, 0.02)' }}>
+                    <Cpu size={16} className="mt-1" style={{ color: 'var(--accent-cyan)' }} />
+                    <div>
+                      <div className="text-white fw-semibold" style={{ fontSize: '0.85rem' }}>Applied AI &amp; Predictive Models</div>
+                      <div className="text-secondary" style={{ fontSize: '0.78rem' }}>Embedding Python ML risk prediction and AI chatbots into real-time operational workflows.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="d-flex flex-wrap gap-2 pt-3 border-top border-eng">
+                <span className="tech-pill">JWT Authorization</span>
+                <span className="tech-pill">RESTful APIs</span>
+                <span className="tech-pill">PostgreSQL / MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Core Strengths */}
+          <div className="col-lg-6">
+            <div className="eng-card h-100 p-4">
+              <div className="d-flex align-items-center gap-2 mb-3">
+                <span className="font-mono text-secondary" style={{ fontSize: '0.8rem' }}>// 03</span>
+                <h3 className="h5 fw-bold mb-0 text-white">Core Strengths</h3>
+              </div>
+              <ul className="list-unstyled d-flex flex-column gap-3 mb-0">
+                <li className="d-flex gap-2">
+                  <span style={{ color: 'var(--accent-emerald)' }}>✓</span>
+                  <div>
+                    <strong className="text-white" style={{ fontSize: '0.88rem' }}>Algorithmic &amp; Problem Solving Depth:</strong>
+                    <div className="text-secondary" style={{ fontSize: '0.8rem' }}>100+ LeetCode problems solved; active on Codeforces with a focus on data structures and time-space efficiency.</div>
+                  </div>
+                </li>
+                <li className="d-flex gap-2">
+                  <span style={{ color: 'var(--accent-emerald)' }}>✓</span>
+                  <div>
+                    <strong className="text-white" style={{ fontSize: '0.88rem' }}>End-to-End Delivery:</strong>
+                    <div className="text-secondary" style={{ fontSize: '0.8rem' }}>Hands-on experience developing both UI components (React, HTML, CSS) and backend services (FastAPI, Spring Boot).</div>
+                  </div>
+                </li>
+                <li className="d-flex gap-2">
+                  <span style={{ color: 'var(--accent-emerald)' }}>✓</span>
+                  <div>
+                    <strong className="text-white" style={{ fontSize: '0.88rem' }}>High-Pressure Execution:</strong>
+                    <div className="text-secondary" style={{ fontSize: '0.8rem' }}>1st prize winner in a 24-hour national-level hackathon building an AI-based working system under hard deadlines.</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Current Direction */}
+          <div className="col-lg-6">
+            <div className="eng-card h-100 p-4">
+              <div className="d-flex align-items-center gap-2 mb-3">
+                <span className="font-mono text-secondary" style={{ fontSize: '0.8rem' }}>// 04</span>
+                <h3 className="h5 fw-bold mb-0 text-white">Current Direction</h3>
+              </div>
+              <p className="text-secondary leading-relaxed mb-4" style={{ fontSize: '0.95rem' }}>
+                Pursuing B.Tech in Information Technology (graduating 2027) while actively building production-grade full-stack products, completing technical internships, and pursuing continuous skill refinement through NPTEL and modern full-stack credentials.
+              </p>
+
+              <div className="p-3 rounded" style={{ background: 'rgba(56, 189, 248, 0.05)', border: '1px solid rgba(56, 189, 248, 0.2)' }}>
+                <div className="d-flex align-items-center gap-2 font-mono text-white mb-1" style={{ fontSize: '0.8rem' }}>
+                  <Award size={15} style={{ color: 'var(--accent-cyan)' }} />
+                  <span>TARGET ROLES</span>
+                </div>
+                <div className="text-secondary" style={{ fontSize: '0.82rem' }}>
+                  Software Development Engineer (SDE), Full-Stack Developer, Backend Engineer (Java / Python).
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
   );
 };
-
-export default About;
