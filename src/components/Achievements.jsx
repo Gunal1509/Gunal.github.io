@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RESUME_DATA } from '../data/resumeData';
-import { Trophy, Award, ExternalLink, Code2, CheckCircle2 } from 'lucide-react';
+import { Trophy, Award, ExternalLink, Code2, CheckCircle2, X, Image as ImageIcon } from 'lucide-react';
 
 export const Achievements = () => {
+  const [showHackathonModal, setShowHackathonModal] = useState(false);
   return (
     <section id="achievements" className="section-wrapper border-top border-eng">
       <div className="container">
@@ -43,9 +44,32 @@ export const Achievements = () => {
                     {ach.title}
                   </div>
 
-                  <p className="text-secondary leading-relaxed mb-0" style={{ fontSize: '0.85rem' }}>
+                  <p className="text-secondary leading-relaxed mb-3" style={{ fontSize: '0.85rem' }}>
                     {ach.detail}
                   </p>
+
+                  {/* Photo for 1st Prize Hackathon */}
+                  {ach.metric === "1st Prize" && (
+                    <div 
+                      className="mb-3 position-relative overflow-hidden rounded border border-secondary cursor-pointer"
+                      style={{ cursor: 'pointer', height: '140px' }}
+                      onClick={() => setShowHackathonModal(true)}
+                      title="Click to view full Award Ceremony Photo"
+                    >
+                      <img 
+                        src="./hackathon_winner.jpg" 
+                        alt="1st Prize Hackathon Award Ceremony" 
+                        className="w-100 h-100 object-fit-cover"
+                        style={{ filter: 'brightness(0.95)' }}
+                        onError={(e) => {
+                          e.currentTarget.src = '/hackathon_winner.jpg';
+                        }}
+                      />
+                      <div className="position-absolute bottom-0 inset-x-0 p-1 bg-dark bg-opacity-75 text-center font-mono" style={{ fontSize: '0.68rem', color: 'var(--accent-cyan)' }}>
+                        AWARD CEREMONY // CLICK TO EXPAND
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <div className="pt-3 mt-3 border-top border-eng d-flex justify-content-between align-items-center">
@@ -123,6 +147,58 @@ export const Achievements = () => {
             ))}
           </div>
         </div>
+
+        {/* Full-view Hackathon Award Ceremony Modal */}
+        {showHackathonModal && (
+          <div className="case-study-modal-backdrop" onClick={() => setShowHackathonModal(false)}>
+            <div className="case-study-modal-content p-4 p-md-5" style={{ maxWidth: '880px' }} onClick={(e) => e.stopPropagation()}>
+              
+              <div className="d-flex justify-content-between align-items-center pb-3 mb-3 border-bottom border-eng">
+                <div className="d-flex align-items-center gap-2">
+                  <Trophy size={18} style={{ color: 'var(--accent-cyan)' }} />
+                  <span className="fw-bold text-white">1st Prize Winner — 24-Hour National-Level Hackathon</span>
+                  <span className="badge rounded-pill font-mono" style={{ background: 'rgba(56, 189, 248, 0.1)', color: 'var(--accent-cyan)', fontSize: '0.72rem' }}>
+                    AI-BASED SOLUTION
+                  </span>
+                </div>
+                
+                <button 
+                  type="button" 
+                  className="btn-engineering btn-ghost-eng p-1 text-white" 
+                  onClick={() => setShowHackathonModal(false)}
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="text-center p-2 rounded bg-black overflow-hidden shadow">
+                <img 
+                  src="./hackathon_winner.jpg" 
+                  alt="Hackathon 1st Prize Award Ceremony" 
+                  className="img-fluid rounded"
+                  style={{ maxHeight: '70vh', objectFit: 'contain' }}
+                  onError={(e) => {
+                    e.currentTarget.src = '/hackathon_winner.jpg';
+                  }}
+                />
+              </div>
+
+              <div className="d-flex flex-wrap justify-content-between align-items-center gap-2 pt-3 mt-3 border-top border-eng font-mono" style={{ fontSize: '0.75rem' }}>
+                <span className="text-secondary">Secured 1st Prize in a 24-hour national-level hackathon by developing an AI-based solution.</span>
+                <a 
+                  href="./hackathon_winner.jpg" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="btn-engineering btn-secondary-eng py-1 px-3"
+                  style={{ fontSize: '0.75rem' }}
+                >
+                  Open Original Photo
+                </a>
+              </div>
+
+            </div>
+          </div>
+        )}
 
       </div>
     </section>
