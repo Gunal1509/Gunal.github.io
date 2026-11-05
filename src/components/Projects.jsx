@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RESUME_DATA } from '../data/resumeData';
-import { Code, ExternalLink, Layers, Database, Cpu, ShieldCheck, X, CheckCircle, ArrowRight } from 'lucide-react';
+import { Code, ExternalLink, Layers, Database, Cpu, ShieldCheck, X, CheckCircle, ArrowRight, Server, Cloud } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 
 export const Projects = () => {
@@ -15,22 +15,22 @@ export const Projects = () => {
             <Code size={13} />
             Engineering Case Studies
           </div>
-          <span className="font-mono text-muted" style={{ fontSize: '0.8rem' }}>
+          <span className="font-mono text-muted" style={{ fontSize: '0.78rem' }}>
             CLICK ANY CASE STUDY FOR ARCHITECTURE DEEP-DIVE
           </span>
         </div>
 
         <h2 className="section-heading">
-          Full-Stack &amp; AI Systems Showcase
+          Featured Systems &amp; Engineering Architectures
         </h2>
 
         <p className="section-description">
-          Detailed technical teardowns of full-stack platforms from my resume, covering architectural decisions, security schemas, API specifications, and database models.
+          Detailed technical teardowns of distributed multi-agent systems, AWS serverless cloud platforms, and full-stack enterprise applications covering deterministic invariants, DAG scheduling, data lakes, and API contracts.
         </p>
 
         {/* Project Cards Grid */}
         <div className="row g-4">
-          {RESUME_DATA.projects.map((project) => (
+          {RESUME_DATA.projects.map((project, idx) => (
             <div key={project.id} className="col-lg-6">
               <div 
                 className="eng-card h-100 p-4 d-flex flex-column justify-content-between cursor-pointer"
@@ -42,10 +42,16 @@ export const Projects = () => {
                   {/* Header & Meta */}
                   <div className="d-flex justify-content-between align-items-start mb-3">
                     <div>
-                      <span className="font-mono" style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)' }}>
-                        CASE STUDY // {project.id.toUpperCase()}
-                      </span>
-                      <h3 className="h4 fw-bold text-white mb-1 mt-1">
+                      <div className="d-flex align-items-center gap-2">
+                        <span className="font-mono text-muted" style={{ fontSize: '0.74rem' }}>
+                          0{idx + 1} // CASE STUDY
+                        </span>
+                        <span className="badge rounded-pill font-mono" style={{ background: 'rgba(255, 255, 255, 0.05)', color: '#ffffff', border: '1px solid rgba(255, 255, 255, 0.12)', fontSize: '0.7rem' }}>
+                          {project.id.toUpperCase()}
+                        </span>
+                      </div>
+                      
+                      <h3 className="h4 fw-bold text-white mb-1 mt-2" style={{ letterSpacing: '-0.025em' }}>
                         {project.title}
                       </h3>
                       <div className="font-mono text-secondary" style={{ fontSize: '0.8rem' }}>
@@ -53,13 +59,13 @@ export const Projects = () => {
                       </div>
                     </div>
 
-                    <span className="badge rounded-pill font-mono" style={{ background: 'rgba(56, 189, 248, 0.1)', color: 'var(--accent-cyan)', border: '1px solid rgba(56, 189, 248, 0.3)', fontSize: '0.72rem' }}>
+                    <span className="badge rounded-pill font-mono" style={{ background: 'rgba(16, 185, 129, 0.08)', color: 'var(--accent-emerald)', border: '1px solid rgba(16, 185, 129, 0.25)', fontSize: '0.7rem' }}>
                       {project.status}
                     </span>
                   </div>
 
                   {/* Summary / Tagline */}
-                  <p className="text-secondary leading-relaxed mb-4" style={{ fontSize: '0.92rem' }}>
+                  <p className="text-secondary leading-relaxed mb-4" style={{ fontSize: '0.92rem', lineHeight: 1.65 }}>
                     {project.tagline}
                   </p>
 
@@ -77,12 +83,12 @@ export const Projects = () => {
 
                   {/* Key Highlights Bullet */}
                   <div className="mb-4">
-                    <div className="font-mono text-muted mb-2" style={{ fontSize: '0.75rem' }}>KEY ARCHITECTURAL HIGHLIGHTS</div>
+                    <div className="font-mono text-muted mb-2" style={{ fontSize: '0.74rem' }}>KEY ARCHITECTURAL HIGHLIGHTS</div>
                     <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
-                      {project.keyFeatures.slice(0, 2).map((feat, idx) => (
-                        <li key={idx} className="d-flex align-items-start gap-2 text-secondary" style={{ fontSize: '0.84rem' }}>
-                          <CheckCircle size={14} className="mt-1 flex-shrink-0" style={{ color: 'var(--accent-cyan)' }} />
-                          <span>{feat}</span>
+                      {project.keyFeatures.slice(0, 2).map((feat, fIdx) => (
+                        <li key={fIdx} className="d-flex align-items-start gap-2 text-secondary" style={{ fontSize: '0.85rem' }}>
+                          <CheckCircle size={14} className="mt-1 flex-shrink-0 text-white" />
+                          <span className="leading-snug">{feat}</span>
                         </li>
                       ))}
                     </ul>
@@ -145,9 +151,9 @@ export const Projects = () => {
                   <div className="d-flex align-items-center gap-2 mb-1">
                     <span className="font-mono text-muted" style={{ fontSize: '0.75rem' }}>SYSTEM SPECIFICATION</span>
                     <span style={{ color: 'var(--border-strong)' }}>|</span>
-                    <span className="font-mono" style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)' }}>{selectedProject.id.toUpperCase()}</span>
+                    <span className="font-mono text-white fw-bold" style={{ fontSize: '0.75rem' }}>{selectedProject.id.toUpperCase()}</span>
                   </div>
-                  <h3 className="h3 fw-bold text-white mb-1">
+                  <h3 className="h3 fw-bold text-white mb-1" style={{ letterSpacing: '-0.03em' }}>
                     {selectedProject.title} — {selectedProject.subtitle}
                   </h3>
                 </div>
@@ -167,7 +173,7 @@ export const Projects = () => {
                 
                 <div className="col-md-6">
                   <div className="p-3 rounded h-100" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)' }}>
-                    <div className="font-mono text-danger mb-2" style={{ fontSize: '0.75rem', letterSpacing: '0.05em' }}>
+                    <div className="font-mono text-muted mb-2" style={{ fontSize: '0.74rem', letterSpacing: '0.05em' }}>
                       PROBLEM DEFINITION
                     </div>
                     <p className="text-secondary leading-relaxed mb-0" style={{ fontSize: '0.88rem' }}>
@@ -177,8 +183,8 @@ export const Projects = () => {
                 </div>
 
                 <div className="col-md-6">
-                  <div className="p-3 rounded h-100" style={{ background: 'rgba(56, 189, 248, 0.04)', border: '1px solid rgba(56, 189, 248, 0.2)' }}>
-                    <div className="font-mono text-info mb-2" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'var(--accent-cyan)' }}>
+                  <div className="p-3 rounded h-100" style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.14)' }}>
+                    <div className="font-mono text-white mb-2" style={{ fontSize: '0.74rem', letterSpacing: '0.05em' }}>
                       ENGINEERED SOLUTION
                     </div>
                     <p className="text-secondary leading-relaxed mb-0" style={{ fontSize: '0.88rem' }}>
@@ -194,18 +200,18 @@ export const Projects = () => {
                 <div className="font-mono text-muted mb-2" style={{ fontSize: '0.75rem' }}>
                   END-TO-END ARCHITECTURE PIPELINE
                 </div>
-                <div className="p-3 rounded" style={{ background: 'var(--bg-tertiary)', border: '1px solid var(--border-subtle)' }}>
+                <div className="p-3 rounded" style={{ background: '#050505', border: '1px solid var(--border-subtle)' }}>
                   <div className="row g-3">
                     {selectedProject.architecture.map((arch, idx) => (
                       <div key={idx} className="col-sm-6 col-lg-3">
-                        <div className="p-2 rounded h-100" style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-subtle)' }}>
-                          <div className="font-mono" style={{ fontSize: '0.7rem', color: 'var(--accent-cyan)' }}>
+                        <div className="p-3 rounded h-100" style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-subtle)' }}>
+                          <div className="font-mono text-muted" style={{ fontSize: '0.7rem' }}>
                             LAYER 0{idx + 1}
                           </div>
-                          <div className="fw-semibold text-white mt-1" style={{ fontSize: '0.82rem' }}>
+                          <div className="fw-semibold text-white mt-1" style={{ fontSize: '0.84rem' }}>
                             {arch.layer}
                           </div>
-                          <div className="font-mono text-secondary mt-1" style={{ fontSize: '0.74rem' }}>
+                          <div className="font-mono text-secondary mt-1" style={{ fontSize: '0.74rem', lineHeight: 1.5 }}>
                             {arch.desc}
                           </div>
                         </div>
@@ -219,13 +225,13 @@ export const Projects = () => {
               <div className="row g-4 mb-4">
                 <div className="col-md-7">
                   <div className="font-mono text-muted mb-2" style={{ fontSize: '0.75rem' }}>
-                    KEY FUNCTIONAL CAPABILITIES
+                    KEY FUNCTIONAL INVARIANTS &amp; CAPABILITIES
                   </div>
                   <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
-                    {selectedProject.keyFeatures.map((feat, idx) => (
-                      <li key={idx} className="d-flex align-items-start gap-2 text-secondary" style={{ fontSize: '0.85rem' }}>
-                        <span style={{ color: 'var(--accent-cyan)' }}>▹</span>
-                        <span>{feat}</span>
+                    {selectedProject.keyFeatures.map((feat, kIdx) => (
+                      <li key={kIdx} className="d-flex align-items-start gap-2 text-secondary" style={{ fontSize: '0.86rem' }}>
+                        <span className="text-white">▹</span>
+                        <span className="leading-snug">{feat}</span>
                       </li>
                     ))}
                   </ul>
@@ -236,7 +242,7 @@ export const Projects = () => {
                     MY DIRECT CONTRIBUTION
                   </div>
                   <div className="p-3 rounded" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)' }}>
-                    <p className="text-secondary mb-0 leading-relaxed" style={{ fontSize: '0.84rem' }}>
+                    <p className="text-secondary mb-0 leading-relaxed" style={{ fontSize: '0.86rem' }}>
                       {selectedProject.myContribution}
                     </p>
                   </div>

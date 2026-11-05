@@ -26,14 +26,14 @@ export const Contact = () => {
           <div className="eng-card eng-card-highlight p-4 p-md-5 mb-5">
             <div className="row align-items-center gy-4">
               <div className="col-lg-8">
-                <div className="d-flex align-items-center gap-2 mb-2 font-mono" style={{ color: 'var(--accent-cyan)', fontSize: '0.8rem' }}>
-                  <FileText size={16} />
-                  <span>OFFICIAL RESUME DOSSIER // GUNAL S</span>
+                <div className="d-flex align-items-center gap-2 mb-2 font-mono text-muted" style={{ fontSize: '0.8rem' }}>
+                  <FileText size={16} className="text-white" />
+                  <span className="text-white fw-semibold">OFFICIAL RESUME DOSSIER // GUNAL S</span>
                 </div>
-                <h3 className="h3 fw-bold text-white mb-2">
+                <h3 className="h3 fw-bold text-white mb-2" style={{ letterSpacing: '-0.03em' }}>
                   Ready to review or share the comprehensive profile?
                 </h3>
-                <p className="text-secondary mb-0 leading-relaxed" style={{ fontSize: '0.92rem' }}>
+                <p className="text-secondary mb-0 leading-relaxed" style={{ fontSize: '0.94rem' }}>
                   Complete single-page engineering documentation containing verified credentials, technical proficiencies, project architecture scopes, and contact references.
                 </p>
               </div>
@@ -83,7 +83,7 @@ export const Contact = () => {
               {/* Email */}
               <div className="eng-card p-3 d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center gap-3">
-                  <div className="p-2 rounded" style={{ background: 'rgba(56, 189, 248, 0.1)', color: 'var(--accent-cyan)' }}>
+                  <div className="p-2 rounded bg-black border border-secondary" style={{ color: '#ffffff' }}>
                     <Mail size={18} />
                   </div>
                   <div>
@@ -106,7 +106,7 @@ export const Contact = () => {
               {/* Phone */}
               <div className="eng-card p-3 d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center gap-3">
-                  <div className="p-2 rounded" style={{ background: 'rgba(56, 189, 248, 0.1)', color: 'var(--accent-cyan)' }}>
+                  <div className="p-2 rounded bg-black border border-secondary" style={{ color: '#ffffff' }}>
                     <Phone size={18} />
                   </div>
                   <div>
@@ -122,7 +122,7 @@ export const Contact = () => {
               {/* Location */}
               <div className="eng-card p-3 d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center gap-3">
-                  <div className="p-2 rounded" style={{ background: 'rgba(56, 189, 248, 0.1)', color: 'var(--accent-cyan)' }}>
+                  <div className="p-2 rounded bg-black border border-secondary" style={{ color: '#ffffff' }}>
                     <MapPin size={18} />
                   </div>
                   <div>
@@ -132,7 +132,7 @@ export const Contact = () => {
                     </div>
                   </div>
                 </div>
-                <span className="badge rounded-pill font-mono" style={{ background: 'rgba(16, 185, 129, 0.1)', color: 'var(--accent-emerald)', fontSize: '0.7rem' }}>
+                <span className="badge rounded-pill font-mono" style={{ background: 'rgba(16, 185, 129, 0.08)', color: 'var(--accent-emerald)', border: '1px solid rgba(16, 185, 129, 0.25)', fontSize: '0.7rem' }}>
                   AVAILABLE
                 </span>
               </div>
@@ -151,7 +151,7 @@ export const Contact = () => {
                     style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)' }}
                   >
                     <div className="d-flex align-items-center gap-2">
-                      <FaGithub size={18} style={{ color: 'var(--text-primary)' }} />
+                      <FaGithub size={18} className="text-white" />
                       <span className="text-white" style={{ fontSize: '0.85rem' }}>GitHub ({RESUME_DATA.personal.githubHandle})</span>
                     </div>
                     <ArrowUpRight size={14} className="text-muted" />
@@ -165,7 +165,7 @@ export const Contact = () => {
                     style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)' }}
                   >
                     <div className="d-flex align-items-center gap-2">
-                      <FaLinkedin size={18} style={{ color: '#0a66c2' }} />
+                      <FaLinkedin size={18} className="text-white" />
                       <span className="text-white" style={{ fontSize: '0.85rem' }}>LinkedIn ({RESUME_DATA.personal.linkedinHandle})</span>
                     </div>
                     <ArrowUpRight size={14} className="text-muted" />
@@ -179,7 +179,7 @@ export const Contact = () => {
                     style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)' }}
                   >
                     <div className="d-flex align-items-center gap-2">
-                      <span className="font-mono fw-bold" style={{ color: '#f89f1b', fontSize: '0.9rem' }}>LC</span>
+                      <span className="font-mono fw-bold text-white" style={{ fontSize: '0.85rem' }}>LC</span>
                       <span className="text-white" style={{ fontSize: '0.85rem' }}>LeetCode ({RESUME_DATA.personal.leetcodeHandle})</span>
                     </div>
                     <ArrowUpRight size={14} className="text-muted" />
@@ -196,7 +196,7 @@ export const Contact = () => {
               
               <div>
                 <div className="d-flex justify-content-between align-items-center pb-3 mb-4 border-bottom border-eng">
-                  <div className="font-mono" style={{ color: 'var(--accent-cyan)', fontSize: '0.82rem' }}>
+                  <div className="font-mono text-white fw-semibold" style={{ fontSize: '0.82rem' }}>
                     TERMINAL // TRANSMIT_MESSAGE.SH
                   </div>
                   <span className="font-mono text-muted" style={{ fontSize: '0.72rem' }}>
@@ -235,11 +235,11 @@ export const Contact = () => {
                         type="text" 
                         required
                         className="form-control"
-                        placeholder="e.g. Hiring Manager / Technical Lead"
+                        placeholder="e.g. Technical Recruiter / Engineering Lead"
                         style={{
-                          background: 'rgba(7, 10, 15, 0.8)',
+                          background: '#050505',
                           borderColor: 'var(--border-subtle)',
-                          color: 'var(--text-primary)',
+                          color: '#ffffff',
                           fontFamily: 'var(--font-sans)',
                           fontSize: '0.88rem'
                         }}
@@ -254,11 +254,11 @@ export const Contact = () => {
                         type="email" 
                         required
                         className="form-control"
-                        placeholder="e.g. engineering@company.com"
+                        placeholder="e.g. engineering@productcompany.com"
                         style={{
-                          background: 'rgba(7, 10, 15, 0.8)',
+                          background: '#050505',
                           borderColor: 'var(--border-subtle)',
-                          color: 'var(--text-primary)',
+                          color: '#ffffff',
                           fontFamily: 'var(--font-sans)',
                           fontSize: '0.88rem'
                         }}
@@ -275,9 +275,9 @@ export const Contact = () => {
                         className="form-control"
                         placeholder="Detail the technical opportunity, project architecture scope, or role specifications..."
                         style={{
-                          background: 'rgba(7, 10, 15, 0.8)',
+                          background: '#050505',
                           borderColor: 'var(--border-subtle)',
-                          color: 'var(--text-primary)',
+                          color: '#ffffff',
                           fontFamily: 'var(--font-sans)',
                           fontSize: '0.88rem',
                           resize: 'none'
@@ -300,7 +300,7 @@ export const Contact = () => {
 
               <div className="mt-4 pt-3 border-top border-eng font-mono text-muted d-flex justify-content-between align-items-center" style={{ fontSize: '0.72rem' }}>
                 <span>STATUS: 200 OK</span>
-                <span>AUTHENTIC RESUME DATA ONLY</span>
+                <span className="text-white">AUTHENTIC DATA VERIFIED</span>
               </div>
 
             </div>
@@ -315,7 +315,7 @@ export const Contact = () => {
           </div>
 
           <div className="d-flex align-items-center gap-4 font-mono text-muted" style={{ fontSize: '0.75rem' }}>
-            <span>DESIGN: MODERN ENGINEERING SPEC</span>
+            <span>DESIGN: PURE BLACK ARCHITECTURE</span>
             <span>STACK: REACT + BOOTSTRAP + CSS</span>
           </div>
         </div>

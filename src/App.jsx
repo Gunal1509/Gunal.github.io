@@ -45,9 +45,9 @@ export default function App() {
         <a 
           href="#hero" 
           className="d-flex align-items-center gap-2 me-2 text-decoration-none"
-          style={{ color: 'var(--text-primary)', fontWeight: 700, fontSize: '0.85rem' }}
+          style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.84rem' }}
         >
-          <span className="p-1 rounded" style={{ background: 'rgba(56, 189, 248, 0.15)', color: 'var(--accent-cyan)' }}>
+          <span className="p-1 rounded" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#ffffff' }}>
             <Terminal size={14} />
           </span>
           <span className="d-none d-sm-inline font-mono">{RESUME_DATA.personal.name}</span>

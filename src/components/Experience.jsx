@@ -31,20 +31,20 @@ export const Experience = () => {
                 <div className="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3 pb-3 border-bottom border-eng">
                   <div>
                     <div className="d-flex align-items-center gap-2 mb-1">
-                      <span className="font-mono" style={{ color: 'var(--accent-cyan)', fontSize: '0.85rem' }}>// INTERNSHIP EXPERIENCE</span>
-                      <span className="badge rounded-pill" style={{ background: 'rgba(16, 185, 129, 0.1)', color: 'var(--accent-emerald)', border: '1px solid rgba(16, 185, 129, 0.3)', fontSize: '0.72rem' }}>
+                      <span className="font-mono text-muted" style={{ fontSize: '0.8rem' }}>// INTERNSHIP EXPERIENCE</span>
+                      <span className="badge rounded-pill font-mono" style={{ background: 'rgba(16, 185, 129, 0.08)', color: 'var(--accent-emerald)', border: '1px solid rgba(16, 185, 129, 0.25)', fontSize: '0.7rem' }}>
                         VERIFIED ROLE
                       </span>
                     </div>
-                    <h3 className="h3 fw-bold text-white mb-1">
+                    <h3 className="h3 fw-bold text-white mb-1" style={{ letterSpacing: '-0.03em' }}>
                       {exp.role} <span className="text-secondary fw-normal">at</span> {exp.company}
                     </h3>
                   </div>
 
                   <div className="d-flex flex-column align-items-md-end font-mono" style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
                     <div className="d-flex align-items-center gap-2">
-                      <Calendar size={14} style={{ color: 'var(--accent-cyan)' }} />
-                      <span>{exp.period}</span>
+                      <Calendar size={14} className="text-white" />
+                      <span className="text-white">{exp.period}</span>
                     </div>
                     <div className="d-flex align-items-center gap-2 mt-1 text-muted">
                       <MapPin size={14} />
@@ -56,13 +56,13 @@ export const Experience = () => {
                 {/* Responsibilities */}
                 <div className="row g-4 mb-4">
                   <div className="col-lg-8">
-                    <div className="font-mono text-muted mb-3" style={{ fontSize: '0.75rem' }}>
+                    <div className="font-mono text-muted mb-3" style={{ fontSize: '0.74rem' }}>
                       ENGINEERING CONTRIBUTIONS &amp; RESPONSIBILITIES
                     </div>
                     <ul className="list-unstyled d-flex flex-column gap-3 mb-0">
                       {exp.responsibilities.map((resp, idx) => (
                         <li key={idx} className="d-flex align-items-start gap-3 text-secondary" style={{ fontSize: '0.92rem' }}>
-                          <CheckCircle size={16} className="mt-1 flex-shrink-0" style={{ color: 'var(--accent-cyan)' }} />
+                          <CheckCircle size={16} className="mt-1 flex-shrink-0 text-white" />
                           <span className="leading-relaxed">{resp}</span>
                         </li>
                       ))}
@@ -71,14 +71,14 @@ export const Experience = () => {
 
                   <div className="col-lg-4">
                     <div className="p-3 rounded h-100" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)' }}>
-                      <div className="font-mono text-muted mb-2" style={{ fontSize: '0.75rem' }}>
+                      <div className="font-mono text-muted mb-2" style={{ fontSize: '0.74rem' }}>
                         OUTCOME &amp; IMPACT
                       </div>
                       <p className="text-secondary mb-3 leading-relaxed" style={{ fontSize: '0.85rem' }}>
                         {exp.outcome}
                       </p>
                       
-                      <div className="font-mono text-muted mb-2" style={{ fontSize: '0.75rem' }}>
+                      <div className="font-mono text-muted mb-2" style={{ fontSize: '0.74rem' }}>
                         STACK UTILIZED
                       </div>
                       <div className="d-flex flex-wrap gap-1 mb-3">
@@ -89,10 +89,10 @@ export const Experience = () => {
 
                       {exp.verificationRef && (
                         <div className="pt-2 border-top border-eng">
-                          <div className="font-mono text-muted mb-2" style={{ fontSize: '0.7rem' }}>
+                          <div className="font-mono text-muted mb-1" style={{ fontSize: '0.7rem' }}>
                             OFFICIAL VERIFICATION
                           </div>
-                          <div className="font-mono mb-1" style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)' }}>
+                          <div className="font-mono mb-1 text-white fw-semibold" style={{ fontSize: '0.75rem' }}>
                             REF: {exp.verificationRef}
                           </div>
                           
@@ -112,7 +112,7 @@ export const Experience = () => {
                                 e.currentTarget.src = '/experience_letter.jpg';
                               }}
                             />
-                            <div className="position-absolute bottom-0 inset-x-0 p-1 bg-dark bg-opacity-75 text-center font-mono" style={{ fontSize: '0.68rem', color: 'var(--accent-cyan)' }}>
+                            <div className="position-absolute bottom-0 inset-x-0 p-1 bg-black bg-opacity-80 text-center font-mono text-white" style={{ fontSize: '0.68rem' }}>
                               CLICK TO VIEW LETTER
                             </div>
                           </div>
@@ -137,8 +137,8 @@ export const Experience = () => {
         {/* Education Section */}
         <div id="education" className="pt-4">
           <div className="d-flex align-items-center gap-2 mb-4">
-            <GraduationCap size={18} style={{ color: 'var(--accent-cyan)' }} />
-            <h3 className="h4 fw-bold text-white mb-0">Academic Education</h3>
+            <GraduationCap size={18} className="text-white" />
+            <h3 className="h4 fw-bold text-white mb-0" style={{ letterSpacing: '-0.025em' }}>Academic Education</h3>
           </div>
 
           <div className="row g-4">
@@ -146,15 +146,15 @@ export const Experience = () => {
               <div key={idx} className="col-md-6">
                 <div className="eng-card h-100 p-4">
                   <div className="d-flex justify-content-between align-items-start mb-2">
-                    <span className="font-mono" style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)' }}>
+                    <span className="font-mono text-muted" style={{ fontSize: '0.75rem' }}>
                       {edu.period}
                     </span>
-                    <span className="badge rounded-pill font-mono" style={{ background: 'rgba(56, 189, 248, 0.1)', color: 'var(--accent-cyan)', border: '1px solid rgba(56, 189, 248, 0.25)', fontSize: '0.75rem' }}>
+                    <span className="badge rounded-pill font-mono" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#ffffff', border: '1px solid rgba(255, 255, 255, 0.16)', fontSize: '0.74rem' }}>
                       {edu.metric}
                     </span>
                   </div>
 
-                  <h4 className="h5 fw-bold text-white mb-1">
+                  <h4 className="h5 fw-bold text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
                     {edu.degree}
                   </h4>
                   <div className="text-secondary mb-3" style={{ fontSize: '0.88rem' }}>
@@ -177,9 +177,9 @@ export const Experience = () => {
               
               <div className="d-flex justify-content-between align-items-center pb-3 mb-3 border-bottom border-eng">
                 <div className="d-flex align-items-center gap-2">
-                  <FileText size={18} style={{ color: 'var(--accent-cyan)' }} />
+                  <FileText size={18} className="text-white" />
                   <span className="fw-bold text-white">Uptoskills Experience Letter</span>
-                  <span className="badge rounded-pill font-mono" style={{ background: 'rgba(56, 189, 248, 0.1)', color: 'var(--accent-cyan)', fontSize: '0.72rem' }}>
+                  <span className="badge rounded-pill font-mono" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#ffffff', border: '1px solid rgba(255, 255, 255, 0.16)', fontSize: '0.72rem' }}>
                     REF: US-EXP-2026-H2543AA
                   </span>
                 </div>
@@ -193,7 +193,7 @@ export const Experience = () => {
                 </button>
               </div>
 
-              <div className="text-center p-2 rounded bg-white overflow-hidden shadow">
+              <div className="text-center p-2 rounded bg-black overflow-hidden shadow">
                 <img 
                   src="./experience_letter.jpg" 
                   alt="Official Uptoskills Experience Letter" 

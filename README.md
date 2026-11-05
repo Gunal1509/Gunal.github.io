@@ -1,26 +1,32 @@
 # Gunal S — Software Developer Portfolio
 
-A production-grade personal engineering portfolio website built with **React**, **Vite**, **Bootstrap**, and modern CSS architecture, based strictly on verified resume credentials and real-world full-stack systems.
+A production-grade personal engineering portfolio website built with **React**, **Vite**, **Bootstrap**, and modern pure-black CSS architecture, showcasing multi-agent distributed systems, AWS serverless cloud platforms, and full-stack enterprise applications.
 
 🌐 **Live Website**: [https://gunal1509.github.io/Gunal.github.io/](https://gunal1509.github.io/Gunal.github.io/)
 
 ---
 
 ## ⚡ Engineering Architecture & Philosophy
-- **Dark Modern Aesthetic**: Inspired by the engineering quality and precision of tools like Linear, Stripe, and Vercel.
-- **Interactive System Pipelines**: Visualized end-to-end architecture flows (`Client → API Gateway → Backend Microservice → Relational DB → Machine Learning Model`).
-- **Technical Case Studies**: Deep-dive breakdowns for **SYNAPTIQ** (AI Campus Assistant) and **SYNQRA** (Supply Chain & Order Management).
-- **Interactive Context Inspector**: Hover or click any technology badge to inspect its exact role and verified application.
-- **Strict Data Integrity**: Fully sourced from verified projects, hackathons, and certifications with zero fabricated statistics.
+- **Pure Black Modern Aesthetic**: High-contrast, minimal monochrome design inspired by Linear, Vercel, and Stripe with refined typography (Inter & JetBrains Mono).
+- **Interactive System Pipelines**: Visualized end-to-end architecture flows (`Ingestion → API Gateway / MCP → Multi-Agent DAG → Trust Gate / ML → Data Lake / DB → Production Platform`).
+- **Technical Case Studies**: Deep-dive breakdowns for:
+  - **VERIFIN**: Adaptive Multi-Agent Financial Intelligence & Underwriting System (NetworkX DAG, MCP Standard, SHA-256 caching, 54 pytest test suite, zero-disbursal guarantee).
+  - **CAMPUS CROWD FLOW & SAFETY**: Cloud-Native Serverless Anomaly Prediction Platform (AWS Lambda Python 3.12, API Gateway, S3 Data Lake, Athena SQL, Z-Score ML).
+  - **SYNAPTIQ**: Full-Stack AI Campus Assistance Platform (React.js, FastAPI, MySQL, JWT, Axios, AI Chatbot).
+  - **SYNQRA**: Supply Chain & Order Management System (React.js, Spring Boot, PostgreSQL, Python ML, JWT).
+- **Interactive Context Inspector**: Click any technology badge to inspect its exact role and verified application.
+- **Strict Data Integrity**: 100% sourced from verified projects, hackathons, and certifications with zero fabricated statistics.
 
 ---
 
 ## 🛠️ Verified Technical Stack
-- **Languages**: Java, Python, JavaScript
-- **Frontend**: React.js, HTML5, CSS3, Bootstrap 5
-- **Backend & APIs**: Spring Boot, FastAPI, Node.js, RESTful APIs, JWT Authentication
-- **Databases**: PostgreSQL, MySQL
-- **Tools**: Git, GitHub, Postman, Vite
+- **Languages**: Python, Java, JavaScript, TypeScript, SQL
+- **Distributed & Multi-Agent**: NetworkX DAG Wave Orchestration, Model Context Protocol (MCP Python SDK 2.x), asyncio
+- **Cloud & Serverless**: AWS Lambda (Python 3.12), Amazon API Gateway, Amazon S3 (SSE-S3 AES-256), Amazon Athena SQL, AWS Glue, CloudWatch, SNS
+- **Backend & APIs**: FastAPI, Spring Boot, Node.js, RESTful APIs, SSE, JWT Authentication
+- **Frontend**: React 19 / React.js, HTML5, CSS3, Bootstrap 5, Vite
+- **Databases & Lakes**: PostgreSQL, MySQL, Amazon S3 Data Lake
+- **Testing & Tooling**: Pytest (54 automated tests), Git, GitHub, Postman, n8n
 
 ---
 
@@ -28,6 +34,7 @@ A production-grade personal engineering portfolio website built with **React**, 
 - **1st Prize Winner**: 24-hour national-level hackathon developing an AI-based system.
 - **100+ Coding Problems**: Solved on [LeetCode](https://leetcode.com/u/Gunal_15/).
 - **5 Hackathons**: Active competitive teamwork and rapid prototype shipping.
+- **Uptoskills Internship**: Web Development Intern (Ref: US-EXP-2026-H2543AA).
 
 ---
 

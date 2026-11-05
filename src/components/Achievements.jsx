@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RESUME_DATA } from '../data/resumeData';
-import { Trophy, Award, ExternalLink, Code2, CheckCircle2, X, Image as ImageIcon } from 'lucide-react';
+import { Trophy, Award, ExternalLink, Code2, CheckCircle2, X } from 'lucide-react';
 
 export const Achievements = () => {
   const [showHackathonModal, setShowHackathonModal] = useState(false);
@@ -28,7 +28,7 @@ export const Achievements = () => {
               <div className="metric-box h-100 d-flex flex-column justify-content-between">
                 <div>
                   <div className="d-flex justify-content-between align-items-center mb-3">
-                    <span className="badge rounded-pill font-mono" style={{ background: 'rgba(56, 189, 248, 0.1)', color: 'var(--accent-cyan)', border: '1px solid rgba(56, 189, 248, 0.25)', fontSize: '0.72rem' }}>
+                    <span className="badge rounded-pill font-mono" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#ffffff', border: '1px solid rgba(255, 255, 255, 0.16)', fontSize: '0.72rem' }}>
                       {ach.badge}
                     </span>
                     <span className="font-mono text-muted" style={{ fontSize: '0.72rem' }}>
@@ -44,7 +44,7 @@ export const Achievements = () => {
                     {ach.title}
                   </div>
 
-                  <p className="text-secondary leading-relaxed mb-3" style={{ fontSize: '0.85rem' }}>
+                  <p className="text-secondary leading-relaxed mb-3" style={{ fontSize: '0.86rem', lineHeight: 1.6 }}>
                     {ach.detail}
                   </p>
 
@@ -65,7 +65,7 @@ export const Achievements = () => {
                           e.currentTarget.src = '/hackathon_winner.jpg';
                         }}
                       />
-                      <div className="position-absolute bottom-0 inset-x-0 p-1 bg-dark bg-opacity-75 text-center font-mono" style={{ fontSize: '0.68rem', color: 'var(--accent-cyan)' }}>
+                      <div className="position-absolute bottom-0 inset-x-0 p-1 bg-black bg-opacity-80 text-center font-mono text-white" style={{ fontSize: '0.68rem' }}>
                         AWARD CEREMONY // CLICK TO EXPAND
                       </div>
                     </div>
@@ -95,8 +95,8 @@ export const Achievements = () => {
         {/* Certifications Block */}
         <div className="mt-4">
           <div className="d-flex align-items-center gap-2 mb-4">
-            <Award size={18} style={{ color: 'var(--accent-cyan)' }} />
-            <h3 className="h4 fw-bold text-white mb-0">Verified Certifications</h3>
+            <Award size={18} className="text-white" />
+            <h3 className="h4 fw-bold text-white mb-0" style={{ letterSpacing: '-0.025em' }}>Verified Certifications</h3>
           </div>
 
           <div className="row g-4">
@@ -107,10 +107,10 @@ export const Achievements = () => {
                     <div className="font-mono text-muted mb-2" style={{ fontSize: '0.72rem' }}>
                       ISSUED BY: {cert.issuer.toUpperCase()}
                     </div>
-                    <h4 className="h6 fw-bold text-white mb-2 leading-snug">
+                    <h4 className="h6 fw-bold text-white mb-2 leading-snug" style={{ letterSpacing: '-0.015em' }}>
                       {cert.name}
                     </h4>
-                    <p className="text-secondary mb-0" style={{ fontSize: '0.82rem' }}>
+                    <p className="text-secondary mb-0" style={{ fontSize: '0.84rem', lineHeight: 1.6 }}>
                       {cert.focus}
                     </p>
                   </div>
@@ -127,8 +127,8 @@ export const Achievements = () => {
         {/* How I Build (Engineering Principles directly from resume) */}
         <div className="mt-5 pt-4">
           <div className="d-flex align-items-center gap-2 mb-4">
-            <Code2 size={18} style={{ color: 'var(--accent-cyan)' }} />
-            <h3 className="h4 fw-bold text-white mb-0">How I Build — Engineering Principles</h3>
+            <Code2 size={18} className="text-white" />
+            <h3 className="h4 fw-bold text-white mb-0" style={{ letterSpacing: '-0.025em' }}>How I Build — Engineering Principles</h3>
           </div>
 
           <div className="row g-4">
@@ -136,10 +136,10 @@ export const Achievements = () => {
               <div key={idx} className="col-md-6">
                 <div className="eng-card h-100 p-4">
                   <div className="d-flex align-items-center gap-2 mb-2">
-                    <span className="font-mono" style={{ color: 'var(--accent-cyan)', fontSize: '0.8rem' }}>0{idx + 1}.</span>
-                    <h4 className="h6 fw-bold text-white mb-0">{prin.title}</h4>
+                    <span className="font-mono text-white fw-bold" style={{ fontSize: '0.82rem' }}>0{idx + 1}.</span>
+                    <h4 className="h6 fw-bold text-white mb-0" style={{ letterSpacing: '-0.015em' }}>{prin.title}</h4>
                   </div>
-                  <p className="text-secondary mb-0 leading-relaxed" style={{ fontSize: '0.85rem' }}>
+                  <p className="text-secondary mb-0 leading-relaxed" style={{ fontSize: '0.85rem', lineHeight: 1.6 }}>
                     {prin.desc}
                   </p>
                 </div>
@@ -155,9 +155,9 @@ export const Achievements = () => {
               
               <div className="d-flex justify-content-between align-items-center pb-3 mb-3 border-bottom border-eng">
                 <div className="d-flex align-items-center gap-2">
-                  <Trophy size={18} style={{ color: 'var(--accent-cyan)' }} />
+                  <Trophy size={18} className="text-white" />
                   <span className="fw-bold text-white">1st Prize Winner — 24-Hour National-Level Hackathon</span>
-                  <span className="badge rounded-pill font-mono" style={{ background: 'rgba(56, 189, 248, 0.1)', color: 'var(--accent-cyan)', fontSize: '0.72rem' }}>
+                  <span className="badge rounded-pill font-mono" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#ffffff', border: '1px solid rgba(255, 255, 255, 0.16)', fontSize: '0.72rem' }}>
                     AI-BASED SOLUTION
                   </span>
                 </div>
