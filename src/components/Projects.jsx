@@ -25,7 +25,7 @@ export const Projects = () => {
         </h2>
 
         <p className="section-description">
-          Detailed technical teardowns of distributed multi-agent systems, AWS serverless cloud platforms, and full-stack enterprise applications covering deterministic invariants, DAG scheduling, data lakes, and API contracts.
+          Detailed technical teardowns of modern frontend interfaces, machine learning workflows, AWS serverless cloud platforms, and full-stack enterprise systems covering component engineering, statistical models, data lakes, and API contracts.
         </p>
 
         {/* Project Cards Grid */}

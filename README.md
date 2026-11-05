@@ -1,6 +1,6 @@
-# Gunal S — Software Developer Portfolio
+# Gunal S — Frontend Developer & Software Engineer Portfolio
 
-A production-grade personal engineering portfolio website built with **React**, **Vite**, **Bootstrap**, and modern pure-black CSS architecture, showcasing multi-agent distributed systems, AWS serverless cloud platforms, and full-stack enterprise applications.
+A production-grade personal engineering portfolio website built with **React**, **Vite**, **Bootstrap**, and modern pure-black CSS architecture, showcasing modern frontend development, machine learning workflows, AWS serverless cloud platforms, and full-stack enterprise applications.
 
 🌐 **Live Website**: [https://gunal1509.github.io/Gunal.github.io/](https://gunal1509.github.io/Gunal.github.io/)
 
@@ -8,7 +8,7 @@ A production-grade personal engineering portfolio website built with **React**, 
 
 ## ⚡ Engineering Architecture & Philosophy
 - **Pure Black Modern Aesthetic**: High-contrast, minimal monochrome design inspired by Linear, Vercel, and Stripe with refined typography (Inter & JetBrains Mono).
-- **Interactive System Pipelines**: Visualized end-to-end architecture flows (`Ingestion → API Gateway / MCP → Multi-Agent DAG → Trust Gate / ML → Data Lake / DB → Production Platform`).
+- **Interactive System Pipelines**: Visualized end-to-end architecture flows (`Frontend UI → API Gateway & Ingestion → Machine Learning & ML Ops → Cloud Serverless → Data Lake & SQL → Production Delivery`).
 - **Technical Case Studies**: Deep-dive breakdowns for:
   - **VERIFIN**: Adaptive Multi-Agent Financial Intelligence & Underwriting System (NetworkX DAG, MCP Standard, SHA-256 caching, 54 pytest test suite, zero-disbursal guarantee).
   - **CAMPUS CROWD FLOW & SAFETY**: Cloud-Native Serverless Anomaly Prediction Platform (AWS Lambda Python 3.12, API Gateway, S3 Data Lake, Athena SQL, Z-Score ML).

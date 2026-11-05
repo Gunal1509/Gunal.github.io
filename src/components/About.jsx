@@ -64,7 +64,8 @@ export const About = () => {
 
               <div className="d-flex flex-wrap gap-2 pt-3 border-top border-eng">
                 <span className="tech-pill">B.Tech IT (GPA: 8.82)</span>
-                <span className="tech-pill">Multi-Agent Systems</span>
+                <span className="tech-pill">Frontend Developer</span>
+                <span className="tech-pill">Machine Learning Interest</span>
                 <span className="tech-pill">AWS Serverless</span>
                 <span className="tech-pill">Competitive Programmer</span>
               </div>
@@ -80,15 +81,23 @@ export const About = () => {
                   <h3 className="h5 fw-bold mb-0 text-white">Engineering Interests</h3>
                 </div>
                 <p className="text-secondary leading-relaxed mb-4" style={{ fontSize: '0.94rem' }}>
-                  Focused on architecting deterministic multi-agent orchestration systems, designing serverless cloud pipelines on AWS, and engineering secure, resilient full-stack platforms.
+                  Focused on crafting responsive, high-performance frontend interfaces with React, designing cloud serverless systems on AWS, and applying machine learning algorithms to real-world data and safety problems.
                 </p>
 
                 <div className="d-flex flex-column gap-2 mb-3">
                   <div className="d-flex align-items-start gap-3 p-2 rounded" style={{ background: 'rgba(255, 255, 255, 0.02)' }}>
+                    <Layers size={16} className="mt-1 text-white" />
+                    <div>
+                      <div className="text-white fw-semibold" style={{ fontSize: '0.86rem' }}>Frontend &amp; UI Component Engineering</div>
+                      <div className="text-secondary" style={{ fontSize: '0.78rem' }}>Interactive single-page applications with React 19, custom hooks, real-time telemetry streaming, and clean design systems.</div>
+                    </div>
+                  </div>
+
+                  <div className="d-flex align-items-start gap-3 p-2 rounded" style={{ background: 'rgba(255, 255, 255, 0.02)' }}>
                     <Server size={16} className="mt-1 text-white" />
                     <div>
-                      <div className="text-white fw-semibold" style={{ fontSize: '0.86rem' }}>Multi-Agent Orchestration &amp; MCP</div>
-                      <div className="text-secondary" style={{ fontSize: '0.78rem' }}>NetworkX dynamic DAG wave schedulers with SHA-256 caching and Model Context Protocol connectors.</div>
+                      <div className="text-white fw-semibold" style={{ fontSize: '0.86rem' }}>Machine Learning &amp; Statistical Models</div>
+                      <div className="text-secondary" style={{ fontSize: '0.78rem' }}>Z-Score anomaly detection (z &gt; 2.5), time-series telemetry analysis, NetworkX graph cycle analytics, and predictive workflows.</div>
                     </div>
                   </div>
 
@@ -99,21 +108,14 @@ export const About = () => {
                       <div className="text-secondary" style={{ fontSize: '0.78rem' }}>AWS Lambda Python 3.12, Amazon API Gateway, partitioned S3 lakes, and Amazon Athena SQL analytics.</div>
                     </div>
                   </div>
-
-                  <div className="d-flex align-items-start gap-3 p-2 rounded" style={{ background: 'rgba(255, 255, 255, 0.02)' }}>
-                    <Layers size={16} className="mt-1 text-white" />
-                    <div>
-                      <div className="text-white fw-semibold" style={{ fontSize: '0.86rem' }}>Full-Stack Systems Architecture</div>
-                      <div className="text-secondary" style={{ fontSize: '0.78rem' }}>FastAPI and Spring Boot REST microservices paired with React 19 SPAs and secure JWT auth.</div>
-                    </div>
-                  </div>
                 </div>
               </div>
 
               <div className="d-flex flex-wrap gap-2 pt-3 border-top border-eng">
-                <span className="tech-pill">NetworkX DAG</span>
-                <span className="tech-pill">FastAPI &amp; Spring Boot</span>
+                <span className="tech-pill">React 19 &amp; TypeScript</span>
+                <span className="tech-pill">Machine Learning &amp; Z-Score</span>
                 <span className="tech-pill">AWS Lambda &amp; Athena</span>
+                <span className="tech-pill">FastAPI &amp; Spring Boot</span>
               </div>
             </div>
           </div>
@@ -159,7 +161,7 @@ export const About = () => {
                 <h3 className="h5 fw-bold mb-0 text-white">Current Direction</h3>
               </div>
               <p className="text-secondary leading-relaxed mb-4" style={{ fontSize: '0.94rem' }}>
-                Pursuing B.Tech in Information Technology (graduating 2027) while actively building production-grade multi-agent architectures, cloud serverless systems, and full-stack platforms.
+                Pursuing B.Tech in Information Technology (graduating 2027) while actively crafting modern frontend web applications, cloud serverless systems, and exploring applied machine learning.
               </p>
 
               <div className="p-3 rounded" style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.12)' }}>
@@ -168,7 +170,7 @@ export const About = () => {
                   <span>TARGET ROLES</span>
                 </div>
                 <div className="text-secondary" style={{ fontSize: '0.84rem' }}>
-                  Software Development Engineer (SDE), Backend Engineer (Python / Java / AWS), Full-Stack Systems Engineer.
+                  Frontend Developer, Software Development Engineer (SDE), Full-Stack Engineer, Machine Learning &amp; Cloud.
                 </div>
               </div>
             </div>

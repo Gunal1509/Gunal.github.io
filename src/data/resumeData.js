@@ -1,7 +1,7 @@
 export const RESUME_DATA = {
   personal: {
     name: "GUNAL S",
-    role: "Software Developer",
+    role: "Frontend Developer & Software Engineer",
     location: "Puducherry, India",
     email: "sivagunal15@gmail.com",
     phone: "+91 9500856348",
@@ -14,22 +14,33 @@ export const RESUME_DATA = {
     codeforces: "https://codeforces.com/profile/Gunal_S15",
     codeforcesHandle: "Gunal_S15",
     summary:
-      "Software Developer specializing in distributed multi-agent systems, AWS serverless cloud architecture, and full-stack enterprise platforms. Proven track record architecting deterministic financial copilots, cloud-native ML anomaly detection, and secure microservices with Python, FastAPI, AWS, Spring Boot, and React.",
+      "Frontend Developer and Software Engineer with a deep interest in Machine Learning, cloud serverless systems, and modern web architectures. Experienced in building responsive, high-performance web applications with React, implementing statistical ML anomaly detection on AWS, and architecting resilient full-stack systems with Python, FastAPI, and Spring Boot.",
     positioning:
-      "Full-stack software developer building dependable multi-agent AI systems, serverless cloud platforms, and robust enterprise architectures."
+      "Frontend Developer & Software Engineer with machine learning interest, building responsive web interfaces, cloud serverless systems, and robust full-stack applications."
   },
 
   skills: {
     categories: [
       {
-        id: "multi_agent_ai",
-        name: "AI & Multi-Agent Systems",
-        description: "Adaptive orchestrators, Model Context Protocol, and statistical machine learning",
+        id: "frontend",
+        name: "Frontend Development",
+        description: "Modern, responsive client architectures, state management, and component design",
         items: [
-          { name: "Multi-Agent Orchestration", role: "Constructing dynamic NetworkX DAG wave schedulers with concurrent asyncio waves and SHA-256 input-hash caching." },
-          { name: "Model Context Protocol (MCP)", role: "Implementing official MCP standard (Python SDK 2.x) with deterministic tools and forward-deployed connector mocks." },
-          { name: "Z-Score Statistical ML", role: "Real-time anomaly detection algorithm (z > 2.5) trained on 5,760 baseline telemetry records for crowd flow control." },
-          { name: "Forensic Loop Detection", role: "NetworkX directed graph cycle isolation to uncover circular trading rings with exact transaction citations." }
+          { name: "React 19 / ReactJS", role: "Core UI library for building dynamic single-page applications, interactive telemetry dashboards, and component hierarchies." },
+          { name: "JavaScript / TypeScript", role: "Type-safe frontend development, ES6+ async/await workflows, and interactive DOM manipulation." },
+          { name: "HTML5 & CSS3 / Modern Layouts", role: "Semantic web standards, CSS variables, dark-mode architectures, and responsive Bootstrap layouts." },
+          { name: "Real-time UI & Streams", role: "Server-Sent Events (SSE) integration and low-latency state updates for live operational dashboards." }
+        ]
+      },
+      {
+        id: "ml_ai",
+        name: "Machine Learning & AI",
+        description: "Statistical ML models, anomaly detection algorithms, graph analytics, and predictive workflows",
+        items: [
+          { name: "Z-Score Statistical ML", role: "Real-time anomaly detection algorithm (z > 2.5) trained on 5,760 baseline telemetry records for crowd flow safety control." },
+          { name: "Predictive Analytics & Forecasting", role: "Time-series telemetry modeling, crowd density forecasts, and statistical distribution modeling." },
+          { name: "Graph Analytics & Loop Isolation", role: "NetworkX directed graph cycle analysis to detect circular trading loops and structural dependencies." },
+          { name: "Model Context Protocol (MCP)", role: "Standardized tool-calling schemas and API connectors for machine learning and intelligent tool workflows." }
         ]
       },
       {
@@ -49,7 +60,7 @@ export const RESUME_DATA = {
         name: "Programming Languages",
         description: "Core languages used for backend architectures, algorithms, and distributed systems",
         items: [
-          { name: "Python", role: "Primary language for multi-agent DAGs, FastAPI microservices, AWS Lambda, Pytest suites, and machine learning." },
+          { name: "Python", role: "Primary language for ML anomaly detection, FastAPI microservices, AWS Lambda, Pytest suites, and DAG automation." },
           { name: "Java", role: "Enterprise backend development with Spring Boot, object-oriented domain models, and role-based access control." },
           { name: "JavaScript / TypeScript", role: "Type-safe frontend development, real-time dashboards, SSE event consumption, and tooling." }
         ]
@@ -59,18 +70,9 @@ export const RESUME_DATA = {
         name: "Backend Frameworks & APIs",
         description: "High-throughput asynchronous servers, enterprise services, and secure auth",
         items: [
-          { name: "FastAPI", role: "High-performance Python web framework used for real-time SSE streams, MCP tool endpoints, and JWT security." },
+          { name: "FastAPI", role: "High-performance Python web framework used for real-time SSE streams, ML inference endpoints, and JWT security." },
           { name: "SpringBoot", role: "Enterprise Java framework powering order lifecycle, transactional integrity, and role-based endpoints." },
           { name: "NodeJS", role: "JavaScript runtime for building scalable server-side tools and application services." }
-        ]
-      },
-      {
-        id: "frontend",
-        name: "Frontend Architecture",
-        description: "Modern, responsive client architecture and component engineering",
-        items: [
-          { name: "React 19 / ReactJS", role: "Core UI library for single-page applications, SSE Agent Theatres, and officer cockpits." },
-          { name: "HTML5 & CSS3", role: "Semantic web standards, modern pure dark-mode architecture, and responsive layout grids." }
         ]
       },
       {
@@ -87,7 +89,7 @@ export const RESUME_DATA = {
         name: "Testing & Workflow",
         description: "Automated verification, version control, API testing, and edge webhooks",
         items: [
-          { name: "Pytest", role: "Comprehensive 54-test automated test suite covering zero-disbursal routes, DAG concurrency, and citation rules." },
+          { name: "Pytest", role: "Comprehensive automated test suite covering deterministic financial routes, validation concurrency, and citation rules." },
           { name: "Github", role: "Source code management, CI/CD pipelines, version control, and open-source contribution." },
           { name: "Postman", role: "API contract testing, endpoint debugging, payload verification, and authentication header validation." },
           { name: "n8n", role: "Edge webhook triggers and workflow automation for intake events and alerts." }

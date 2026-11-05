@@ -6,12 +6,12 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 export const Hero = () => {
   const [activeStep, setActiveStep] = useState(2);
   const steps = [
-    { label: "Telemetry & Ingestion", desc: "Sensor Streams / Intake Webhooks / REST APIs" },
-    { label: "API Gateway & MCP", desc: "FastAPI / AWS API Gateway / Model Context Protocol" },
-    { label: "Adaptive DAG Orchestrator", desc: "NetworkX Concurrency Waves & Input-Hash Caching" },
-    { label: "Deterministic Trust & ML", desc: "Trust Gate Triangulation & Z-Score Statistical ML" },
-    { label: "Data Lake & Storage", desc: "Amazon S3 Partitioned Lake / PostgreSQL / Athena SQL" },
-    { label: "Production Platform", desc: "React 19 Operator Cockpit & Live SSE Stream" }
+    { label: "Frontend & UI Layer", desc: "React 19 / TypeScript / Interactive Dashboards & Component Systems" },
+    { label: "API Gateway & Ingestion", desc: "FastAPI / AWS API Gateway / Real-Time Sensor Ingestion" },
+    { label: "Machine Learning & ML Ops", desc: "Z-Score Statistical ML Anomaly Detection (z > 2.5) & Telemetry" },
+    { label: "Cloud Serverless Compute", desc: "AWS Lambda Python 3.12 & CloudWatch Real-Time Metric Alarms" },
+    { label: "Data Lake & Query Engines", desc: "Amazon S3 Partitioned Lake / Amazon Athena SQL / PostgreSQL" },
+    { label: "Production Delivery", desc: "High-Performance SPA / Deterministic Invariants & CI/CD" }
   ];
 
   return (
@@ -66,13 +66,13 @@ export const Hero = () => {
                   &gt; {RESUME_DATA.personal.name}
                 </div>
                 <div className="font-mono text-muted" style={{ fontSize: '0.78rem' }}>
-                  {RESUME_DATA.personal.role} // Distributed Systems &amp; Cloud
+                  {RESUME_DATA.personal.role} // ML Interest &amp; Cloud
                 </div>
               </div>
             </div>
 
             <h1 className="display-4 fw-bold mb-4 text-white" style={{ letterSpacing: '-0.04em', lineHeight: 1.12 }}>
-              Building distributed multi-agent systems, serverless cloud platforms &amp; full-stack architectures.
+              Frontend Developer crafting responsive web experiences with machine learning interest &amp; cloud systems.
             </h1>
 
             <p className="lead mb-4 text-secondary" style={{ fontSize: '1.08rem', maxWidth: '620px', lineHeight: 1.7 }}>
@@ -119,7 +119,7 @@ export const Hero = () => {
             {/* Quick Tech Badges */}
             <div className="d-flex flex-wrap align-items-center gap-2 pt-2">
               <span className="font-mono text-muted me-2" style={{ fontSize: '0.74rem' }}>CORE STACK:</span>
-              {["Python", "FastAPI", "AWS Lambda", "API Gateway", "NetworkX (DAG)", "Java", "Spring Boot", "React 19", "PostgreSQL", "Amazon Athena"].map((tech) => (
+              {["React 19", "JavaScript", "TypeScript", "Python", "Machine Learning (Z-Score)", "FastAPI", "AWS Lambda", "Spring Boot", "PostgreSQL", "Amazon Athena"].map((tech) => (
                 <span key={tech} className="tech-pill">{tech}</span>
               ))}
             </div>
@@ -133,7 +133,7 @@ export const Hero = () => {
               <div className="d-flex justify-content-between align-items-center pb-3 mb-3 border-bottom border-eng">
                 <div className="d-flex align-items-center gap-2 font-mono" style={{ fontSize: '0.8rem', color: '#ffffff' }}>
                   <Terminal size={15} style={{ color: '#ffffff' }} />
-                  <span>DISTRIBUTED_PIPELINE.SYS</span>
+                  <span>FRONTEND_ML_SYSTEM.SYS</span>
                 </div>
                 <span className="badge rounded-pill font-mono" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#ffffff', border: '1px solid rgba(255, 255, 255, 0.15)', fontSize: '0.7rem' }}>
                   ACTIVE PIPELINE
@@ -141,7 +141,7 @@ export const Hero = () => {
               </div>
 
               <p className="text-secondary mb-3" style={{ fontSize: '0.82rem', lineHeight: 1.6 }}>
-                Production pipeline architecture: from edge ingestion and adaptive DAG wave orchestration to deterministic ML evaluation and live operator delivery.
+                Production pipeline architecture: from responsive React frontend interfaces and REST APIs to statistical ML evaluation and cloud serverless compute.
               </p>
 
               <div className="d-flex flex-column gap-2">

@@ -24,7 +24,7 @@ export const Skills = () => {
         </h2>
 
         <p className="section-description">
-          Verified languages, cloud services, multi-agent frameworks, and databases with direct architectural context explaining where each is applied in production code.
+          Frontend libraries, machine learning models, cloud services, and production databases with direct architectural context explaining where each is applied in production code.
         </p>
 
         <div className="row g-4">
