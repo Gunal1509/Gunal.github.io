@@ -1,17 +1,39 @@
 import React, { useState } from 'react';
 import { RESUME_DATA } from '../data/resumeData';
-import { ArrowUpRight, FileDown, Terminal, Cpu } from 'lucide-react';
+import { ArrowUpRight, FileDown, Layers, Server, Brain, Sparkles } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export const Hero = () => {
-  const [activeStep, setActiveStep] = useState(2);
-  const steps = [
-    { label: "Frontend & UI Layer", desc: "React 19 / TypeScript / Interactive Dashboards & Component Systems" },
-    { label: "API Gateway & Ingestion", desc: "FastAPI / AWS API Gateway / Real-Time Sensor Ingestion" },
-    { label: "Machine Learning & ML Ops", desc: "Z-Score Statistical ML Anomaly Detection (z > 2.5) & Telemetry" },
-    { label: "Cloud Serverless Compute", desc: "AWS Lambda Python 3.12 & CloudWatch Real-Time Metric Alarms" },
-    { label: "Data Lake & Query Engines", desc: "Amazon S3 Partitioned Lake / Amazon Athena SQL / PostgreSQL" },
-    { label: "Production Delivery", desc: "High-Performance SPA / Deterministic Invariants & CI/CD" }
+  const [activeTrack, setActiveTrack] = useState(0);
+
+  const learningTracks = [
+    {
+      id: "frontend",
+      title: "Frontend Engineering",
+      subtitle: "React 19, TypeScript & High-Performance UI",
+      status: "DEEPENING",
+      icon: Layers,
+      description: "Mastering advanced React 19 concurrent features, custom hooks architecture, responsive design systems, and low-latency client state management.",
+      topics: ["React 19 & Hooks", "TypeScript Type Systems", "Responsive CSS & Bootstrap", "State Optimization"]
+    },
+    {
+      id: "springboot",
+      title: "Spring Boot & Java Backend",
+      subtitle: "Enterprise Microservices & REST Architectures",
+      status: "IN PROGRESS",
+      icon: Server,
+      description: "Building production-grade backend services with Spring Boot 3.x, Spring Security with JWT & RBAC, Spring Data JPA / Hibernate, and PostgreSQL.",
+      topics: ["Spring Boot 3.x REST APIs", "Spring Security & JWT", "Hibernate & JPA", "PostgreSQL ACID"]
+    },
+    {
+      id: "machinelearning",
+      title: "Machine Learning & AI",
+      subtitle: "Statistical Models & Predictive Telemetry",
+      status: "ACTIVE STUDY",
+      icon: Brain,
+      description: "Studying statistical ML models, real-time Z-Score anomaly detection, time-series telemetry forecasting, and predictive data pipelines.",
+      topics: ["Z-Score Statistical ML", "Anomaly Detection", "Scikit-Learn & Python", "Telemetry Modeling"]
+    }
   ];
 
   return (
@@ -126,62 +148,95 @@ export const Hero = () => {
 
           </div>
 
-          {/* Interactive Engineering Workflow Visualizer */}
+          {/* Active Learning & Engineering Focus Card */}
           <div className="col-lg-5">
             <div className="eng-card eng-card-highlight p-4">
               
               <div className="d-flex justify-content-between align-items-center pb-3 mb-3 border-bottom border-eng">
                 <div className="d-flex align-items-center gap-2 font-mono" style={{ fontSize: '0.8rem', color: '#ffffff' }}>
-                  <Terminal size={15} style={{ color: '#ffffff' }} />
-                  <span>FRONTEND_ML_SYSTEM.SYS</span>
+                  <Sparkles size={15} style={{ color: '#ffffff' }} />
+                  <span>ACTIVE_LEARNING // 2026_FOCUS</span>
                 </div>
-                <span className="badge rounded-pill font-mono" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#ffffff', border: '1px solid rgba(255, 255, 255, 0.15)', fontSize: '0.7rem' }}>
-                  ACTIVE PIPELINE
+                <span className="badge rounded-pill font-mono" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#ffffff', border: '1px solid rgba(255, 255, 255, 0.16)', fontSize: '0.7rem' }}>
+                  CONTINUOUS STUDY
                 </span>
               </div>
 
               <p className="text-secondary mb-3" style={{ fontSize: '0.82rem', lineHeight: 1.6 }}>
-                Production pipeline architecture: from responsive React frontend interfaces and REST APIs to statistical ML evaluation and cloud serverless compute.
+                Actively strengthening core competencies across modern frontend engineering, enterprise Spring Boot architectures, and practical machine learning applications.
               </p>
 
-              <div className="d-flex flex-column gap-2">
-                {steps.map((st, idx) => {
-                  const isCurrent = activeStep === idx;
+              <div className="d-flex flex-column gap-3">
+                {learningTracks.map((track, idx) => {
+                  const isCurrent = activeTrack === idx;
+                  const IconComp = track.icon;
                   return (
                     <div 
-                      key={st.label}
-                      onClick={() => setActiveStep(idx)}
-                      className="p-2 rounded d-flex align-items-center justify-content-between transition-fast cursor-pointer"
+                      key={track.id}
+                      onClick={() => setActiveTrack(idx)}
+                      className="p-3 rounded transition-fast cursor-pointer"
                       style={{
-                        background: isCurrent ? 'rgba(255, 255, 255, 0.08)' : 'rgba(255, 255, 255, 0.02)',
-                        border: isCurrent ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid var(--border-subtle)',
+                        background: isCurrent ? 'rgba(255, 255, 255, 0.07)' : 'rgba(255, 255, 255, 0.02)',
+                        border: isCurrent ? '1px solid rgba(255, 255, 255, 0.32)' : '1px solid var(--border-subtle)',
                         cursor: 'pointer'
                       }}
                     >
-                      <div className="d-flex align-items-center gap-3">
-                        <span className="font-mono" style={{ fontSize: '0.75rem', color: isCurrent ? '#ffffff' : 'var(--text-muted)' }}>
-                          0{idx + 1}
-                        </span>
-                        <div>
-                          <div className="fw-semibold" style={{ fontSize: '0.85rem', color: isCurrent ? '#ffffff' : 'var(--text-primary)' }}>
-                            {st.label}
+                      <div className="d-flex align-items-center justify-content-between mb-2">
+                        <div className="d-flex align-items-center gap-2">
+                          <div 
+                            className="p-1 rounded d-flex align-items-center justify-content-center"
+                            style={{ 
+                              background: isCurrent ? 'rgba(255, 255, 255, 0.16)' : 'rgba(255, 255, 255, 0.05)',
+                              color: '#ffffff' 
+                            }}
+                          >
+                            <IconComp size={14} />
                           </div>
-                          <div className="font-mono" style={{ fontSize: '0.72rem', color: 'var(--text-secondary)' }}>
-                            {st.desc}
+                          <div>
+                            <span className="fw-semibold text-white d-block" style={{ fontSize: '0.88rem' }}>
+                              {track.title}
+                            </span>
                           </div>
                         </div>
+                        <span className="badge rounded-pill font-mono" style={{ 
+                          background: isCurrent ? 'rgba(255, 255, 255, 0.14)' : 'rgba(255, 255, 255, 0.04)', 
+                          color: isCurrent ? '#ffffff' : 'var(--text-muted)',
+                          border: isCurrent ? '1px solid rgba(255, 255, 255, 0.28)' : '1px solid var(--border-subtle)',
+                          fontSize: '0.66rem' 
+                        }}>
+                          {track.status}
+                        </span>
                       </div>
-                      <span className="font-mono" style={{ fontSize: '0.72rem', color: isCurrent ? '#10b981' : 'var(--text-dim)' }}>
-                        {isCurrent ? "● EXECUTING" : "○ READY"}
-                      </span>
+
+                      <p className="text-secondary mb-2" style={{ fontSize: '0.8rem', lineHeight: 1.55 }}>
+                        {track.description}
+                      </p>
+
+                      <div className="d-flex flex-wrap gap-1 pt-1">
+                        {track.topics.map((tp) => (
+                          <span 
+                            key={tp} 
+                            className="badge font-mono" 
+                            style={{ 
+                              background: 'rgba(255, 255, 255, 0.035)', 
+                              color: isCurrent ? '#ffffff' : 'var(--text-secondary)',
+                              border: '1px solid rgba(255, 255, 255, 0.1)',
+                              fontSize: '0.67rem',
+                              fontWeight: 400
+                            }}
+                          >
+                            {tp}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   );
                 })}
               </div>
 
               <div className="mt-3 pt-3 border-top border-eng d-flex justify-content-between align-items-center font-mono" style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
-                <span>PARADIGM: SPEC → COMPUTE → AUDIT</span>
-                <span className="text-white">DETERMINISTIC INVARIANTS</span>
+                <span>METHOD: PROJECT-BASED IMPLEMENTATION</span>
+                <span className="text-white">DAILY DEDICATION</span>
               </div>
 
             </div>
